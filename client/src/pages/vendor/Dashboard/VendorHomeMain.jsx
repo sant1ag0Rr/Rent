@@ -1,6 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { FiTruck, FiCalendar, FiDollarSign } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useMemo, useState } from "react";
+import { FiCalendar, FiDollarSign, FiTruck } from "react-icons/fi";
+import { useSelector } from "react-redux";
+
+const currencyFormatter = new Intl.NumberFormat("es-CO", {
+  style: "currency",
+  currency: "COP",
+  maximumFractionDigits: 0,
+});
+
+const getBookingLabel = (status) => {
+  const labels = {
+    reservado: "Reservada",
+    enViaje: "En viaje",
+    noRecogido: "No recogido",
+    cancelado: "Cancelada",
+    vencido: "Vencida",
+    viajeCompletado: "Completada",
+    noReservado: "No reservada",
+  };
+
+  return labels[status] || "Sin estado";
+};
+
+const getBookingBadge = (status) => {
+  const styles = {
+    reservado: "bg-yellow-100 text-yellow-800",
+    enViaje: "bg-blue-100 text-blue-800",
+    noRecogido: "bg-orange-100 text-orange-800",
+    cancelado: "bg-red-100 text-red-800",
+    vencido: "bg-slate-100 text-slate-700",
+    viajeCompletado: "bg-green-100 text-green-800",
+    noReservado: "bg-slate-100 text-slate-700",
+  };
+
+  return styles[status] || "bg-slate-100 text-slate-700";
+};
 
 const VendorHomeMain = () => {
   const [vendorStats, setVendorStats] = useState({
@@ -9,8 +43,10 @@ const VendorHomeMain = () => {
     pendingVehicles: 0,
     totalBookings: 0,
     pendingBookings: 0,
+    activeBookings: 0,
     completedBookings: 0,
-    totalEarnings: 0
+    cancelledBookings: 0,
+    totalEarnings: 0,
   });
 
   const [recentBookings, setRecentBookings] = useState([]);
@@ -21,44 +57,46 @@ const VendorHomeMain = () => {
     const fetchVendorData = async () => {
       try {
         setLoading(true);
-        
-        // Obtener vehículos del vendedor
+
         const vehiclesRes = await fetch("/api/vendor/showVendorVehilces", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ _id })
+          body: JSON.stringify({ _id }),
         });
-        
+
         let vehicles = [];
         if (vehiclesRes.ok) {
           vehicles = await vehiclesRes.json();
         }
 
-        // Obtener reservas del vendedor
         const bookingsRes = await fetch("/api/vendor/vendorBookings", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ _id })
+          body: JSON.stringify({ _id }),
         });
-        
+
         let bookings = [];
         if (bookingsRes.ok) {
           bookings = await bookingsRes.json();
         }
 
-        // Calcular estadísticas reales
         const totalVehicles = vehicles.length;
-        const approvedVehicles = vehicles.filter(v => v.isAdminApproved === true).length;
-        const pendingVehicles = vehicles.filter(v => v.isAdminApproved === false).length;
-        
+        const approvedVehicles = vehicles.filter((v) => v.isAdminApproved === true).length;
+        const pendingVehicles = vehicles.filter((v) => v.isAdminApproved === false).length;
+
         const totalBookings = bookings.length;
-        const pendingBookings = bookings.filter(b => b.status === 'reservado').length;
-        const completedBookings = bookings.filter(b => b.status === 'viajeCompletado').length;
-        
-        // Calcular ganancias (suma de reservas completadas en modelo Booking)
+        const pendingBookings = bookings.filter((b) => b.status === "reservado").length;
+        const activeBookings = bookings.filter((b) => b.status === "enViaje").length;
+        const completedBookings = bookings.filter(
+          (b) => b.status === "viajeCompletado"
+        ).length;
+        const cancelledBookings = bookings.filter((b) =>
+          ["cancelado", "vencido", "noRecogido"].includes(b.status)
+        ).length;
+
         const totalEarnings = bookings
-          .filter(b => b.status === 'viajeCompletado')
-          .reduce((sum, b) => sum + (Number(b.totalPrice) || 0), 0);
+          .filter((b) => !["cancelado", "vencido", "noReservado"].includes(b.status))
+          .reduce((sum, booking) => sum + (Number(booking.totalPrice) || 0), 0);
 
         setVendorStats({
           totalVehicles,
@@ -66,27 +104,33 @@ const VendorHomeMain = () => {
           pendingVehicles,
           totalBookings,
           pendingBookings,
+          activeBookings,
           completedBookings,
-          totalEarnings
+          cancelledBookings,
+          totalEarnings,
         });
 
-        // Mostrar reservas recientes (últimas 5)
-        const recentBookingsData = bookings
-          .slice(0, 5)
-          .map(booking => ({
-            id: booking._id,
-            customer: booking.user_name || 'Cliente',
-            vehicle: booking.vehicle_name || 'Vehículo',
-            date: new Date(booking.pickup_date).toLocaleDateString('es-ES'),
-            status: booking.status === 'pending' ? 'Pendiente' : 
-                    booking.status === 'approved' ? 'Aprobada' : 
-                    booking.status === 'completed' ? 'Completada' : 'Pendiente'
-          }));
+        const recentBookingsData = bookings.slice(0, 5).map((booking) => ({
+          id: booking._id,
+          customer:
+            booking.userDetails?.username ||
+            booking.userDetails?.email ||
+            "Cliente",
+          vehicle:
+            booking.vehicleDetails?.name ||
+            booking.vehicleDetails?.car_title ||
+            "Vehículo",
+          date: booking.pickupDate
+            ? new Date(booking.pickupDate).toLocaleDateString("es-CO")
+            : "Sin fecha",
+          status: getBookingLabel(booking.status),
+          statusKey: booking.status,
+          totalPrice: Number(booking.totalPrice) || 0,
+        }));
 
         setRecentBookings(recentBookingsData);
-        
       } catch (error) {
-        console.error('Error cargando datos del vendedor:', error);
+        console.error("Error cargando datos del vendedor:", error);
       } finally {
         setLoading(false);
       }
@@ -97,12 +141,17 @@ const VendorHomeMain = () => {
     }
   }, [_id]);
 
+  const formattedEarnings = useMemo(
+    () => currencyFormatter.format(vendorStats.totalEarnings || 0),
+    [vendorStats.totalEarnings]
+  );
+
   if (loading) {
     return (
-      <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-        <div className="flex justify-center items-center h-64">
+      <div className="m-2 mt-24 rounded-3xl bg-white p-2 md:m-10 md:p-10">
+        <div className="flex h-64 items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-blue-500"></div>
             <p className="mt-4 text-gray-600">Cargando datos del vendedor...</p>
           </div>
         </div>
@@ -111,18 +160,16 @@ const VendorHomeMain = () => {
   }
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <div className="flex items-center justify-between mb-8">
+    <div className="m-2 mt-24 rounded-3xl bg-white p-2 md:m-10 md:p-10">
+      <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-800">Panel de Vendedor</h1>
           <p className="text-gray-600">Gestiona tus vehículos y reservas</p>
         </div>
       </div>
 
-      {/* Tarjetas de Estadísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {/* Total de Vehículos */}
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
+      <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-blue-100">Total de Vehículos</p>
@@ -132,8 +179,7 @@ const VendorHomeMain = () => {
           </div>
         </div>
 
-        {/* Vehículos Aprobados */}
-        <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-green-100">Vehículos Aprobados</p>
@@ -143,34 +189,32 @@ const VendorHomeMain = () => {
           </div>
         </div>
 
-        {/* Reservas Pendientes */}
-        <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-yellow-500 to-yellow-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-yellow-100">Reservas Pendientes</p>
-              <p className="text-3xl font-bold">{vendorStats.pendingBookings}</p>
+              <p className="text-yellow-100">Reservas Activas</p>
+              <p className="text-3xl font-bold">
+                {vendorStats.pendingBookings + vendorStats.activeBookings}
+              </p>
             </div>
             <FiCalendar className="text-4xl opacity-80" />
           </div>
         </div>
 
-        {/* Ganancias Totales */}
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-purple-100">Ganancias Totales</p>
-              <p className="text-3xl font-bold">€{vendorStats.totalEarnings}</p>
+              <p className="text-2xl font-bold">{formattedEarnings}</p>
             </div>
             <FiDollarSign className="text-4xl opacity-80" />
           </div>
         </div>
       </div>
 
-      {/* Información de Vehículos */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Estado de Vehículos */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Estado de Vehículos</h3>
+      <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
+          <h3 className="mb-4 text-xl font-semibold text-gray-800">Estado de Vehículos</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Total de Vehículos</span>
@@ -178,41 +222,59 @@ const VendorHomeMain = () => {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Aprobados</span>
-              <span className="text-green-600 font-semibold">{vendorStats.approvedVehicles}</span>
+              <span className="font-semibold text-green-600">
+                {vendorStats.approvedVehicles}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Pendientes de Aprobación</span>
-              <span className="text-yellow-600 font-semibold">{vendorStats.pendingVehicles}</span>
+              <span className="font-semibold text-yellow-600">
+                {vendorStats.pendingVehicles}
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Resumen de Reservas */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Resumen de Reservas</h3>
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
+          <h3 className="mb-4 text-xl font-semibold text-gray-800">Resumen de Reservas</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Total de Reservas</span>
               <span className="font-semibold">{vendorStats.totalBookings}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-gray-600">Pendientes</span>
-              <span className="text-yellow-600 font-semibold">{vendorStats.pendingBookings}</span>
+              <span className="text-gray-600">Pendientes de Recogida</span>
+              <span className="font-semibold text-yellow-600">
+                {vendorStats.pendingBookings}
+              </span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">En Viaje</span>
+              <span className="font-semibold text-blue-600">
+                {vendorStats.activeBookings}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Completadas</span>
-              <span className="text-green-600 font-semibold">{vendorStats.completedBookings}</span>
+              <span className="font-semibold text-green-600">
+                {vendorStats.completedBookings}
+              </span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Canceladas / Vencidas</span>
+              <span className="font-semibold text-red-600">
+                {vendorStats.cancelledBookings}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Reservas Recientes */}
-      <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">Reservas Recientes</h3>
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
+        <h3 className="mb-4 text-xl font-semibold text-gray-800">Reservas Recientes</h3>
         {recentBookings.length === 0 ? (
-          <div className="text-center py-8">
-            <div className="text-gray-400 text-4xl mb-2">📅</div>
+          <div className="py-8 text-center">
+            <div className="mb-2 text-4xl text-gray-400">📄</div>
             <p className="text-gray-500">No hay reservas aún</p>
           </div>
         ) : (
@@ -221,24 +283,28 @@ const VendorHomeMain = () => {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 text-gray-600 font-medium">Cliente</th>
-                    <th className="text-left py-3 px-4 text-gray-600 font-medium">Vehículo</th>
-                    <th className="text-left py-3 px-4 text-gray-600 font-medium">Fecha</th>
-                    <th className="text-left py-3 px-4 text-gray-600 font-medium">Estado</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">Cliente</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">Vehículo</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">Fecha</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">Monto</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">Estado</th>
                   </tr>
                 </thead>
                 <tbody>
                   {recentBookings.map((booking) => (
                     <tr key={booking.id} className="border-b border-gray-100">
-                      <td className="py-3 px-4">{booking.customer}</td>
-                      <td className="py-3 px-4">{booking.vehicle}</td>
-                      <td className="py-3 px-4">{booking.date}</td>
-                      <td className="py-3 px-4">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          booking.status === 'Pendiente' ? 'bg-yellow-100 text-yellow-800' :
-                          booking.status === 'Aprobada' ? 'bg-blue-100 text-blue-800' :
-                          'bg-green-100 text-green-800'
-                        }`}>
+                      <td className="px-4 py-3">{booking.customer}</td>
+                      <td className="px-4 py-3">{booking.vehicle}</td>
+                      <td className="px-4 py-3">{booking.date}</td>
+                      <td className="px-4 py-3">
+                        {currencyFormatter.format(booking.totalPrice)}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`rounded-full px-2 py-1 text-xs font-medium ${getBookingBadge(
+                            booking.statusKey
+                          )}`}
+                        >
                           {booking.status}
                         </span>
                       </td>
@@ -247,7 +313,9 @@ const VendorHomeMain = () => {
                 </tbody>
               </table>
             </div>
-            <p className="text-gray-500 text-sm mt-4">{recentBookings.length} Reservas Recientes</p>
+            <p className="mt-4 text-sm text-gray-500">
+              {recentBookings.length} reservas recientes
+            </p>
           </>
         )}
       </div>
