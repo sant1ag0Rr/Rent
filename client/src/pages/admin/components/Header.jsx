@@ -32,7 +32,7 @@ const Header = ({ category, title }) => {
         </p>
       </div>
       <button 
-        className="bg-blue-600 rounded-lg text-white px-5 py-2 font-bold" 
+        className="bg-emerald-600 rounded-lg text-white px-5 py-2 font-bold" 
         onClick={handleAddVehicle}
         onKeyDown={handleKeyDown}
         type="button"

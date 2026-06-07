@@ -55,8 +55,8 @@ const VehicleCard = ({ vehicle, dispatch, navigate }) => {
   const hasManyImages = vehicle.image && vehicle.image.length > 1;
 
   return (
-    <article className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.14)]">
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-green-50/60 px-6 pt-7">
+    <article className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-1">
+      <div className="relative overflow-hidden bg-slate-50 px-6 pt-7">
         <div className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
           {vehicle.company}
         </div>
@@ -205,7 +205,7 @@ const Vehicles = () => {
     <>
       <section className="bg-white px-6 pb-8 pt-10 md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[34px] bg-gradient-to-r from-slate-900 via-slate-800 to-green-600 px-8 py-10 text-white shadow-[0_28px_80px_rgba(15,23,42,0.18)] md:px-10">
+          <div className="rounded-[34px] bg-slate-900 px-8 py-10 text-white md:px-10">
             <div className="max-w-3xl">
               <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90">
                 Catálogo de vehículos
@@ -222,14 +222,14 @@ const Vehicles = () => {
         </div>
       </section>
 
-      <div className="bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-6 pb-16 md:px-10 lg:px-16">
+      <div className="bg-slate-50 px-6 pb-16 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:items-start">
           <div className="col-span-3 mt-2 lg:sticky lg:top-6">
             <Filter />
           </div>
 
           <div className="col-span-9">
-            <div className="rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_12px_35px_rgba(15,23,42,0.06)] md:p-5">
+            <div className="rounded-[28px] border border-slate-200 bg-white p-4 md:p-5">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-slate-900">Vehículos disponibles</h2>
@@ -244,7 +244,7 @@ const Vehicles = () => {
             {isLoading ? (
               <SkeletonLoader />
             ) : visibleVehicles.length === 0 ? (
-              <div className="mt-6 rounded-[28px] border border-dashed border-slate-200 bg-white px-6 py-16 text-center text-slate-500 shadow-[0_12px_35px_rgba(15,23,42,0.05)]">
+              <div className="mt-6 rounded-[28px] border border-dashed border-slate-200 bg-white px-6 py-16 text-center text-slate-500">
                 No encontramos vehículos con los filtros actuales.
               </div>
             ) : (

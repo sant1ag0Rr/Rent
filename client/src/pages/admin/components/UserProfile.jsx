@@ -6,7 +6,7 @@ const UserProfile = () => {
   const { currentUser } = useSelector((state) => state.user);
   
   return (
-    <div className=" dark:text-gray-200  dark:bg-secondary-dark-bg  rounded-xl w-[250px]  p-5 absolute top-0 right-0   bg-no-repeat   bg-blue-50 h-44  ">
+    <div className=" dark:text-gray-200  dark:bg-secondary-dark-bg  rounded-xl w-[250px]  p-5 absolute top-0 right-0   bg-no-repeat   bg-emerald-50 h-44  ">
       <div>
         <div className="flex justify-between w-full items-center gap-20">
           <p className="font-bold text-gray-400">{currentUser?.username || 'Usuario'}</p>

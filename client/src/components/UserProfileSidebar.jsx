@@ -27,7 +27,7 @@ const UserProfileSidebar = () => {
   const dispatch = useDispatch();
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-black bg-blue-50 text-md  m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-black bg-emerald-50 text-md  m-2";
   //in normal mode there was dark:text-gray-200 i removed it
   const normalLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-md text-gray-700   dark:hover:text-black hover:bg-slate-100 m-2";

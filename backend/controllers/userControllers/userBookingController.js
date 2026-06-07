@@ -85,7 +85,7 @@ export const razorpayOrder = async (req, res, next) => {
 
     const options = {
       amount: totalPrice * 100, // amount in smallest currency unit
-      currency: "INR",
+      currency: "COP",
     };
 
     const order = await instance.orders.create(options);

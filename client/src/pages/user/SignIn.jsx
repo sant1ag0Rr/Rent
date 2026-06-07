@@ -83,71 +83,73 @@ function SignIn() {
 
   return (
     <>
-      <div
-        className={`max-w-[340px] pb-10 md:max-w-md min-h-[500px] mx-auto mt-[70px] md:mt-[80px] rounded-lg overflow-hidden  shadow-2xl`}
-      >
-        <div
-          className={` green px-6 py-2   rounded-t-lg flex justify-between items-center`}
-        >
-          <h1 className={`${styles.heading2}  text-normal `}>Iniciar Sesion</h1>
-          <Link to="/">
-            <div className=" px-3  font-bold  hover:bg-green-300 rounded-md  shadow-inner">
-              x
-            </div>
+      <div className="max-w-md w-full mx-auto mt-20 mb-10 bg-white rounded-[32px] shadow-2xl shadow-emerald-900/10 border border-slate-100 overflow-hidden">
+        <div className="bg-gradient-to-r from-emerald-500 to-green-600 px-8 py-8 flex justify-between items-center text-white relative">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+          <div className="relative z-10">
+            <h1 className="text-3xl font-extrabold tracking-tight">Iniciar Sesión</h1>
+            <p className="text-emerald-50 text-sm mt-1">Ingresa a tu cuenta para continuar</p>
+          </div>
+          <Link to="/" className="relative z-10 text-white/80 hover:text-white transition-colors bg-black/10 hover:bg-black/20 rounded-full w-8 h-8 flex items-center justify-center">
+            <span className="text-xl font-bold leading-none mb-1">&times;</span>
           </Link>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-5 pt-10 px-5"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 p-8">
           <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Correo electrónico</label>
             <input
               type="email"
               id="email"
-              className="text-black bg-slate-100 p-3 rounded-md w-full"
-              placeholder="Email"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              placeholder="tu@email.com"
               {...register("email")}
             />
             {errors.email && (
-              <p className="text-red-500 text-[10px]">{errors.email.message}</p>
+              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.email.message}</p>
             )}
           </div>
 
           <div>
+            <div className="flex justify-between items-center mb-2">
+              <label className="block text-sm font-semibold text-slate-700">Contraseña</label>
+              <Link to="/" className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">¿Olvidaste tu contraseña?</Link>
+            </div>
             <input
               type="password"
               id="password"
-              className="text-black bg-slate-100 p-3 rounded-md w-full"
-              placeholder="Password"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              placeholder="••••••••"
               {...register("password")}
             />
             {errors.password && (
-              <p className="text-red-500 text-[10px]">
-                {errors.password.message}
-              </p>
+              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.password.message}</p>
             )}
           </div>
 
           <button
-            className={`${styles.button}  disabled:bg-slate-500 text-black disabled:text-white`}
+            className="mt-2 w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition-all duration-300 disabled:bg-slate-300 disabled:shadow-none flex items-center justify-center"
             disabled={isLoading}
           >
-            {isLoading ? "Cargando..." : "Iniciar Sesion"}
+            {isLoading ? (
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+            ) : (
+              "Ingresar a mi cuenta"
+            )}
           </button>
-          <div className="flex justify-between">
-            <div className="flex justify-between">
-              <p className="text-[10px] border-r border-black">
-                No tienes cuenta?{" "}
-                <span className="text-blue-600 pr-2">
-                  <Link to="/signup">Registrarse</Link>
-                </span>
-              </p>
-              <p className="text-[10px] pl-2 text-blue-600">olvide mi contrasena</p>
-            </div>
 
-            <p className="text-[10px] text-red-600">
-              {isError ? isError.message || "something went wrong" : " "}
+          {isError && (
+             <div className="mt-2 p-3 bg-rose-50 border border-rose-100 rounded-lg text-center">
+               <p className="text-sm font-semibold text-rose-600">{isError.message || "Algo salió mal"}</p>
+             </div>
+          )}
+
+          <div className="mt-4 pt-6 border-t border-slate-100 text-center">
+            <p className="text-sm text-slate-500 font-medium">
+              ¿No tienes una cuenta?{" "}
+              <Link to="/signup" className="text-emerald-600 hover:text-emerald-700 font-bold ml-1 transition-colors">
+                Regístrate gratis
+              </Link>
             </p>
           </div>
         </form>

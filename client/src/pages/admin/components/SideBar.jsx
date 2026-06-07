@@ -17,7 +17,7 @@ const SideBar = () => {
   const dispatch = useDispatch();
 
   const activeLink =
-    "m-2 flex items-center gap-5 rounded-lg bg-blue-50 pl-4 pb-2.5 pt-3 text-md text-black";
+    "m-2 flex items-center gap-5 rounded-lg bg-emerald-50 pl-4 pb-2.5 pt-3 text-md text-black";
   const normalLink =
     "m-2 flex items-center gap-5 rounded-lg pl-4 pb-2.5 pt-3 text-md text-gray-700 hover:bg-slate-100 dark:hover:text-black";
 
@@ -46,7 +46,7 @@ const SideBar = () => {
           <div className="flex items-center justify-between">
             <Link
               to="/adminDashboard"
-              className="mt-4 ml-3 flex items-center gap-3 text-xl font-extrabold tracking-tight text-blue-500"
+              className="mt-4 ml-3 flex items-center gap-3 text-xl font-extrabold tracking-tight text-emerald-500"
             >
               <SiShopware />
               Alquila un Auto

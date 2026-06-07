@@ -130,9 +130,9 @@ describe('TC-02: Búsqueda de Vehículos', () => {
     
     // Act - Simular filtrado por precio
     const mockVehicles = [
-      { id: '1', price: 80000, available: true },
-      { id: '2', price: 120000, available: true },
-      { id: '3', price: 90000, available: true }
+      { id: '1', price: 180000, available: true },
+      { id: '2', price: 280000, available: true },
+      { id: '3', price: 200000, available: true }
     ];
     
     const filteredVehicles = mockVehicles.filter(v => v.price <= maxPrice);
@@ -175,7 +175,7 @@ describe('TC-03: Reserva de Vehículos', () => {
       dropOffDate: '2025-01-20',
       pickUpLocation: 'Bogotá',
       dropOffLocation: 'Medellín',
-      totalPrice: 150000
+      totalPrice: 550000
     };
     
     // Act - Simular creación de reserva
@@ -231,7 +231,7 @@ describe('TC-04: Proceso de Pago con Razorpay', () => {
   it('debería procesar pago exitosamente', () => {
     // Arrange
     const paymentData = {
-      amount: 150000,
+      amount: 550000,
       currency: 'COP',
       orderId: 'order_123456',
       paymentId: 'pay_123456'
@@ -248,7 +248,7 @@ describe('TC-04: Proceso de Pago con Razorpay', () => {
     
     // Assert
     expect(mockPayment.status).to.equal('captured');
-    expect(mockPayment.amount).to.equal(150000);
+    expect(mockPayment.amount).to.equal(550000);
     expect(mockPayment.currency).to.equal('COP');
     expect(mockPayment.orderId).to.equal('order_123456');
   });
@@ -256,7 +256,7 @@ describe('TC-04: Proceso de Pago con Razorpay', () => {
   it('debería manejar pago rechazado', () => {
     // Arrange
     const failedPaymentData = {
-      amount: 150000,
+      amount: 550000,
       orderId: 'order_123456',
       errorCode: 'PAYMENT_DECLINED'
     };
@@ -278,7 +278,7 @@ describe('TC-04: Proceso de Pago con Razorpay', () => {
 
   it('debería validar monto del pago', () => {
     // Arrange
-    const validAmount = 150000;
+    const validAmount = 550000;
     const invalidAmount = -1000;
     
     // Act & Assert
@@ -304,14 +304,14 @@ describe('TC-05: Historial de Reservas', () => {
         vehicleId: 'vehicle_1',
         pickupDate: '2025-01-15',
         status: 'viajeCompletado',
-        totalPrice: 150000
+        totalPrice: 550000
       },
       {
         id: '2',
         vehicleId: 'vehicle_2',
         pickupDate: '2025-02-15',
         status: 'reservado',
-        totalPrice: 200000
+        totalPrice: 800000
       }
     ];
     
@@ -419,13 +419,13 @@ describe('TC-07: Agregar Vehículos (Vendedor)', () => {
     const vehicleData = {
       registeration_number: 'ABC123',
       company: 'Toyota',
-      name: 'Corolla',
+      name: 'Fortuner',
       model: '2024',
       year_made: 2024,
-      fuel_type: 'petrol',
-      seats: 5,
+      fuel_type: 'diesel',
+      seats: 7,
       transmition: 'automatic',
-      price: 120000
+      price: 450000
     };
     
     // Act - Simular vehículo agregado
@@ -453,7 +453,7 @@ describe('TC-07: Agregar Vehículos (Vendedor)', () => {
       registeration_number: 'ABC123',
       company: 'Toyota',
       name: 'Corolla',
-      price: 120000
+      price: 200000
     };
     
     // Assert
@@ -679,14 +679,14 @@ describe('TC-11: Consulta de Reservas Pasadas', () => {
         vehicleId: 'vehicle_1',
         pickupDate: new Date('2024-12-01'),
         status: 'viajeCompletado',
-        totalPrice: 150000
+        totalPrice: 550000
       },
       {
         id: '2',
         vehicleId: 'vehicle_2',
         pickupDate: new Date('2024-11-15'),
         status: 'viajeCompletado',
-        totalPrice: 200000
+        totalPrice: 800000
       }
     ];
     
@@ -736,7 +736,7 @@ describe('TC-12: Agregar Vehículos (Vendedor)', () => {
       fuel_type: 'petrol',
       seats: 5,
       transmition: 'manual',
-      price: 100000,
+      price: 200000,
       description: 'Vehículo en excelente estado'
     };
     
@@ -764,7 +764,7 @@ describe('TC-12: Agregar Vehículos (Vendedor)', () => {
       registeration_number: 'XYZ789',
       company: 'Honda',
       name: 'Civic',
-      price: 100000
+      price: 200000
     };
     
     // Assert
@@ -916,7 +916,7 @@ describe('TC-15: Edición de Vehículos (Vendedor)', () => {
     // Arrange
     const vehicleId = 'vehicle_123';
     const updatedData = {
-      price: 130000,
+      price: 275000,
       description: 'Vehículo actualizado con nueva información'
     };
     

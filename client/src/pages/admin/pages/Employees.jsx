@@ -74,7 +74,7 @@ const Employees = () => {
         }
         if (params.row.isVendor) {
           return (
-            <span className="px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
+            <span className="px-2 py-1 rounded-full text-xs bg-emerald-100 text-emerald-800">
               Vendedor
             </span>
           );
@@ -109,7 +109,7 @@ const Employees = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500"></div>
       </div>
     );
   }

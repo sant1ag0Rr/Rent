@@ -159,7 +159,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <input
                   {...register("registeration_number", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="ABC-1234"
                 />
                 {errors.registeration_number && (
@@ -173,19 +173,41 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <select
                   {...register("company", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar marca</option>
                   <option value="Toyota">Toyota</option>
                   <option value="Honda">Honda</option>
                   <option value="Ford">Ford</option>
+                  <option value="Chevrolet">Chevrolet</option>
+                  <option value="Mazda">Mazda</option>
+                  <option value="Renault">Renault</option>
                   <option value="BMW">BMW</option>
-                  <option value="Mercedes">Mercedes</option>
+                  <option value="Mercedes-Benz">Mercedes-Benz</option>
                   <option value="Audi">Audi</option>
                   <option value="Volkswagen">Volkswagen</option>
                   <option value="Nissan">Nissan</option>
                   <option value="Hyundai">Hyundai</option>
                   <option value="Kia">Kia</option>
+                  <option value="Suzuki">Suzuki</option>
+                  <option value="Mitsubishi">Mitsubishi</option>
+                  <option value="Subaru">Subaru</option>
+                  <option value="Peugeot">Peugeot</option>
+                  <option value="Citroen">Citroen</option>
+                  <option value="Jeep">Jeep</option>
+                  <option value="Dodge">Dodge</option>
+                  <option value="Fiat">Fiat</option>
+                  <option value="Seat">Seat</option>
+                  <option value="Skoda">Skoda</option>
+                  <option value="Volvo">Volvo</option>
+                  <option value="Lexus">Lexus</option>
+                  <option value="Porsche">Porsche</option>
+                  <option value="Land Rover">Land Rover</option>
+                  <option value="Mini">Mini</option>
+                  <option value="Chery">Chery</option>
+                  <option value="BYD">BYD</option>
+                  <option value="MG">MG</option>
+                  <option value="JAC">JAC</option>
                 </select>
                 {errors.company && (
                   <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
@@ -201,7 +223,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <input
                   {...register("name", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Corolla, Civic, Focus..."
                 />
                 {errors.name && (
@@ -215,7 +237,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <input
                   {...register("title", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Toyota Corolla 2023 Luxury"
                 />
                 {errors.title && (
@@ -232,7 +254,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <select
                   {...register("base_package", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar paquete</option>
                   <option value="Básico">Básico</option>
@@ -248,7 +270,7 @@ const VendorAddProductModal = ({ onClose }) => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Precio por Día (€) *
+                  Precio por Día (COP) *
                 </label>
                 <input
                   {...register("price", { 
@@ -256,7 +278,7 @@ const VendorAddProductModal = ({ onClose }) => {
                     min: { value: 1, message: "El precio debe ser mayor a 0" }
                   })}
                   type="number"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="50"
                 />
                 {errors.price && (
@@ -278,7 +300,7 @@ const VendorAddProductModal = ({ onClose }) => {
                     max: { value: 2025, message: "Año máximo 2025" }
                   })}
                   type="number"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="2023"
                 />
                 {errors.year_made && (
@@ -292,7 +314,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <select
                   {...register("fuel_type", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar combustible</option>
                   <option value="petrol">Gasolina</option>
@@ -314,7 +336,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <select
                   {...register("car_type", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar tipo</option>
                   <option value="Sedán">Sedán</option>
@@ -324,6 +346,20 @@ const VendorAddProductModal = ({ onClose }) => {
                   <option value="Deportivo">Deportivo</option>
                   <option value="Furgoneta">Furgoneta</option>
                   <option value="Pickup">Pickup</option>
+                  <option value="Moto">Moto</option>
+                  <option value="Bus">Bus</option>
+                  <option value="Microbús">Microbús</option>
+                  <option value="Camioneta">Camioneta</option>
+                  <option value="Camión">Camión</option>
+                  <option value="Van">Van</option>
+                  <option value="Minivan">Minivan</option>
+                  <option value="Convertible">Convertible</option>
+                  <option value="Coupé">Coupé</option>
+                  <option value="Todoterreno">Todoterreno</option>
+                  <option value="Utilitario">Utilitario</option>
+                  <option value="Eléctrico">Eléctrico</option>
+                  <option value="Híbrido">Híbrido</option>
+                  <option value="Otro">Otro</option>
                 </select>
                 {errors.car_type && (
                   <p className="text-red-500 text-sm mt-1">{errors.car_type.message}</p>
@@ -336,7 +372,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 </label>
                 <select
                   {...register("transmition_type", { required: "Campo requerido" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar transmisión</option>
                   <option value="manual">Manual</option>
@@ -357,7 +393,7 @@ const VendorAddProductModal = ({ onClose }) => {
                 <textarea
                   {...register("description")}
                   rows="3"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Descripción del vehículo..."
                 />
               </div>
@@ -373,7 +409,7 @@ const VendorAddProductModal = ({ onClose }) => {
                   {...register("location", { required: "Ubicación es requerida" })}
                   type="text"
                   placeholder="Ej: Ciudad de México"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
                 {errors.location && (
                   <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>
@@ -388,7 +424,7 @@ const VendorAddProductModal = ({ onClose }) => {
                   {...register("district", { required: "Distrito es requerido" })}
                   type="text"
                   placeholder="Ej: Polanco, Condesa, etc."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
                 {errors.district && (
                   <p className="text-red-500 text-sm mt-1">{errors.district.message}</p>
@@ -409,7 +445,7 @@ const VendorAddProductModal = ({ onClose }) => {
                       multiple
                 accept="image/*"
                 onChange={handleImageChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               
               {/* Información de ayuda */}
@@ -429,7 +465,7 @@ const VendorAddProductModal = ({ onClose }) => {
                       Imágenes seleccionadas ({selectedImages.length}/5):
                     </p>
                     {selectedImages.length < 5 && (
-                      <p className="text-xs text-blue-600">
+                      <p className="text-xs text-emerald-600">
                         Puedes agregar {5 - selectedImages.length} imagen{5 - selectedImages.length !== 1 ? 'es' : ''} más
                       </p>
                     )}
@@ -463,11 +499,11 @@ const VendorAddProductModal = ({ onClose }) => {
                   </div>
 
                   {/* Información adicional */}
-                  <div className="mt-3 p-3 bg-blue-50 rounded-lg">
-                    <p className="text-xs text-blue-800">
+                  <div className="mt-3 p-3 bg-emerald-50 rounded-lg">
+                    <p className="text-xs text-emerald-800">
                       <strong>📋 Instrucciones:</strong>
                     </p>
-                    <ul className="text-xs text-blue-700 mt-1 space-y-1">
+                    <ul className="text-xs text-emerald-700 mt-1 space-y-1">
                       <li>• <strong>Imagen Principal:</strong> Aparecerá primero en el catálogo</li>
                       <li>• <strong>Orden:</strong> Las imágenes se muestran en el orden de selección</li>
                       <li>• <strong>Agregar más:</strong> Selecciona archivos nuevamente para agregar</li>
@@ -495,7 +531,7 @@ const VendorAddProductModal = ({ onClose }) => {
               <button
                 type="submit"
                 disabled={isSubmitting || selectedImages.length === 0}
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Enviando..." : "Crear Vehículo"}
               </button>

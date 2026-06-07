@@ -94,20 +94,20 @@ export default function VendorBookingsPanel() {
     const colorMap = {
       // Estados nuevos en español
       "noReservado": "bg-gray-100 text-gray-800",
-      "reservado": "bg-blue-100 text-blue-800",
+      "reservado": "bg-emerald-100 text-emerald-800",
       "enViaje": "bg-green-100 text-green-800",
-      "noRecogido": "bg-yellow-100 text-yellow-800",
+      "noRecogido": "bg-lime-100 text-lime-800",
       "cancelado": "bg-red-100 text-red-800",
-      "vencido": "bg-orange-100 text-orange-800",
-      "viajeCompletado": "bg-purple-100 text-purple-800",
+      "vencido": "bg-emerald-100 text-emerald-800",
+      "viajeCompletado": "bg-emerald-100 text-emerald-800",
       // Estados antiguos en inglés (para compatibilidad)
       "notBooked": "bg-gray-100 text-gray-800",
-      "booked": "bg-blue-100 text-blue-800",
+      "booked": "bg-emerald-100 text-emerald-800",
       "onTrip": "bg-green-100 text-green-800",
-      "notPicked": "bg-yellow-100 text-yellow-800",
+      "notPicked": "bg-lime-100 text-lime-800",
       "canceled": "bg-red-100 text-red-800",
-      "overDue": "bg-orange-100 text-orange-800",
-      "tripCompleted": "bg-purple-100 text-purple-800"
+      "overDue": "bg-emerald-100 text-emerald-800",
+      "tripCompleted": "bg-emerald-100 text-emerald-800"
     };
     return colorMap[status] || "bg-gray-100 text-gray-800";
   };
@@ -226,22 +226,22 @@ export default function VendorBookingsPanel() {
                   {/* Fechas y Ubicaciones */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* Recogida */}
-                    <div className="bg-blue-50 rounded-xl p-4">
+                    <div className="bg-emerald-50 rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-sm">🚗</span>
                         </div>
-                        <h4 className="font-semibold text-blue-800">Recogida</h4>
+                        <h4 className="font-semibold text-emerald-800">Recogida</h4>
                       </div>
 
                       <div className="space-y-2">
                         <p className="text-sm text-gray-700 flex items-center gap-2">
-                          <FiMapPin className="text-blue-500" />
+                          <FiMapPin className="text-emerald-500" />
                           <span className="font-medium">{booking.bookingDetails.pickUpLocation}</span>
                         </p>
 
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <FiCalendar className="text-blue-500" />
+                          <FiCalendar className="text-emerald-500" />
                           <span>{pickupDate.toLocaleDateString('es-ES', {
                             day: '2-digit',
                             month: '2-digit',
@@ -250,7 +250,7 @@ export default function VendorBookingsPanel() {
                         </div>
 
                         <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <FiClock className="text-blue-500" />
+                          <FiClock className="text-emerald-500" />
                           <span>{pickupDate.toLocaleTimeString('es-ES', {
                             hour: '2-digit',
                             minute: '2-digit'
@@ -297,7 +297,7 @@ export default function VendorBookingsPanel() {
                   {/* Información del Cliente */}
                   <div className="bg-gray-50 rounded-xl p-4 mb-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                      <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                         <FiUser className="text-white text-sm" />
                       </div>
                       <h4 className="font-semibold text-gray-800">Información del Cliente</h4>
@@ -317,7 +317,7 @@ export default function VendorBookingsPanel() {
 
                   {/* Acciones */}
                   <div className="flex justify-end gap-3">
-                    <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2">
+                    <button className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2">
                       <span>📞</span>
                       Contactar Cliente
                     </button>

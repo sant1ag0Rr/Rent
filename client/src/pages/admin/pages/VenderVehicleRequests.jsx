@@ -117,7 +117,7 @@ const VenderVehicleRequests = () => {
       width: 150,
       renderCell: (params) =>
         params.row.status === "Pending" ? (
-          <div className="flex items-center justify-center gap-x-1 rounded-lg bg-yellow-100 p-2 text-yellow-500">
+          <div className="flex items-center justify-center gap-x-1 rounded-lg bg-lime-100 p-2 text-lime-500">
             <span className="text-[10px]">Pending</span>
             <MdOutlinePending />
           </div>

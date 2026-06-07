@@ -231,7 +231,7 @@ const VehicleDetails = () => {
                 {singleVehicleDetail?.name}
               </h1>
               <div className="mt-5 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90">
-                <FaStar className="mr-2 text-yellow-300" />
+                <FaStar className="mr-2 text-lime-300" />
                 Calificación: {singleVehicleDetail?.rating || singleVehicleDetail?.ratting || 5}
               </div>
             </div>

@@ -24,9 +24,9 @@ const getBookingLabel = (status) => {
 
 const getBookingBadge = (status) => {
   const styles = {
-    reservado: "bg-yellow-100 text-yellow-800",
-    enViaje: "bg-blue-100 text-blue-800",
-    noRecogido: "bg-orange-100 text-orange-800",
+    reservado: "bg-lime-100 text-lime-800",
+    enViaje: "bg-emerald-100 text-emerald-800",
+    noRecogido: "bg-emerald-100 text-emerald-800",
     cancelado: "bg-red-100 text-red-800",
     vencido: "bg-slate-100 text-slate-700",
     viajeCompletado: "bg-green-100 text-green-800",
@@ -151,7 +151,7 @@ const VendorHomeMain = () => {
       <div className="m-2 mt-24 rounded-3xl bg-white p-2 md:m-10 md:p-10">
         <div className="flex h-64 items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-blue-500"></div>
+            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-emerald-500"></div>
             <p className="mt-4 text-gray-600">Cargando datos del vendedor...</p>
           </div>
         </div>
@@ -169,10 +169,10 @@ const VendorHomeMain = () => {
       </div>
 
       <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-blue-100">Total de Vehículos</p>
+              <p className="text-emerald-100">Total de Vehículos</p>
               <p className="text-3xl font-bold">{vendorStats.totalVehicles}</p>
             </div>
             <FiTruck className="text-4xl opacity-80" />
@@ -189,10 +189,10 @@ const VendorHomeMain = () => {
           </div>
         </div>
 
-        <div className="rounded-xl bg-gradient-to-r from-yellow-500 to-yellow-600 p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-lime-500 to-lime-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-yellow-100">Reservas Activas</p>
+              <p className="text-lime-100">Reservas Activas</p>
               <p className="text-3xl font-bold">
                 {vendorStats.pendingBookings + vendorStats.activeBookings}
               </p>
@@ -201,10 +201,10 @@ const VendorHomeMain = () => {
           </div>
         </div>
 
-        <div className="rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white">
+        <div className="rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 p-6 text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-purple-100">Ganancias Totales</p>
+              <p className="text-emerald-100">Ganancias Totales</p>
               <p className="text-2xl font-bold">{formattedEarnings}</p>
             </div>
             <FiDollarSign className="text-4xl opacity-80" />
@@ -228,7 +228,7 @@ const VendorHomeMain = () => {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Pendientes de Aprobación</span>
-              <span className="font-semibold text-yellow-600">
+              <span className="font-semibold text-lime-600">
                 {vendorStats.pendingVehicles}
               </span>
             </div>
@@ -244,13 +244,13 @@ const VendorHomeMain = () => {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Pendientes de Recogida</span>
-              <span className="font-semibold text-yellow-600">
+              <span className="font-semibold text-lime-600">
                 {vendorStats.pendingBookings}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">En Viaje</span>
-              <span className="font-semibold text-blue-600">
+              <span className="font-semibold text-emerald-600">
                 {vendorStats.activeBookings}
               </span>
             </div>

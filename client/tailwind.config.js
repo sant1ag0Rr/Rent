@@ -10,6 +10,9 @@ const tailwindConfig = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       backgroundImage: {
         'hero-pattern':
           "url('./src/pages/admin/data/welcome-bg.svg')",

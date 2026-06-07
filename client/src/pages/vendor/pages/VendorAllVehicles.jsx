@@ -117,8 +117,8 @@ const VendorAllVehicles = () => {
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <MdOutlinePending className="text-yellow-500" />
-            <span className="text-yellow-500">Pendiente</span>
+            <MdOutlinePending className="text-lime-500" />
+            <span className="text-lime-500">Pendiente</span>
           </div>
         ),
     },
@@ -200,7 +200,7 @@ const VendorAllVehicles = () => {
           <p className="text-gray-500 mb-4">Comienza agregando tu primer vehículo para alquiler</p>
           <button
             onClick={handleAddVehicle}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-medium"
+            className="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 font-medium"
           >
             Agregar Primer Vehículo
           </button>

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "../../index";
-import Herocar from "../../Assets/homepage_car_copy.jpeg";
+import Herocar from "../../Assets/black_fortuner.png";
 import { HeroParallax } from "../../components/ui/Paralax";
 import { setIsSweetAlert } from "../../redux/user/userSlice";
 import Footers from "../../components/Footer";
@@ -60,8 +60,7 @@ function Home() {
     <>
       {isSweetAlert && sweetalert()}
 
-      <section className="relative mx-auto min-h-[72vh] w-full overflow-hidden bg-white sm:max-w-[900px] md:min-h-[60vh] lg:min-h-[73vh] lg:max-w-[1500px]">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+      <section className="relative mx-auto min-h-[72vh] w-full overflow-hidden bg-slate-50 sm:max-w-[900px] md:min-h-[60vh] lg:min-h-[73vh] lg:max-w-[1500px]">
 
         <div className="relative z-10 mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-6 py-16 sm:px-10 md:min-h-[60vh] md:grid-cols-2 md:px-14 lg:min-h-[73vh] lg:px-20">
           <div className="max-w-3xl">
@@ -132,20 +131,20 @@ function Home() {
             {benefits.map((benefit) => (
               <article
                 key={benefit.title}
-                className="group rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-[0_14px_40px_rgba(15,23,42,0.06)] transition-transform duration-300 hover:-translate-y-1"
+                className="group rounded-3xl bg-white p-8 text-center transition-transform duration-300 hover:-translate-y-1"
               >
                 <div
-                  className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${benefit.iconStyle}`}
+                  className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-3xl ${benefit.iconStyle}`}
                 >
                   {benefit.icon}
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold text-gray-900">
+                <h3 className="mt-6 text-2xl font-semibold text-slate-900">
                   {benefit.title}
                 </h3>
-                <p className="mt-3 text-lg leading-8 text-gray-500">
+                <p className="mt-3 text-lg leading-8 text-slate-500">
                   {benefit.description}
                 </p>
-                <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-green-500 to-gray-800 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-125" />
               </article>
             ))}
           </div>

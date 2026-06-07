@@ -88,7 +88,7 @@ export default function EditProductComponent() {
   return (
     <div>
       <button onClick={handleClose} className="relative left-10 top-5">
-        <div className="padding-5 padding-2 rounded-full bg-slate-100 drop-shadow-md hover:shadow-lg hover:bg-blue-200 hover:translate-y-1 hover:translate-x-1 ">
+        <div className="padding-5 padding-2 rounded-full bg-slate-100 drop-shadow-md hover:shadow-lg hover:bg-emerald-200 hover:translate-y-1 hover:translate-x-1 ">
           <IoMdClose style={{ fontSize: "30" }} />
         </div>
       </button>

@@ -188,8 +188,8 @@ const CarSearch = () => {
                 Revisa tu email para confirmar la orden. <IconX width={20} height={20} />
               </p>
               
-              <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-                <p className="text-sm text-blue-800">
+              <div className="mb-4 p-3 bg-emerald-50 rounded-lg">
+                <p className="text-sm text-emerald-800">
                   <strong>💡 ¿Para qué sirve?</strong> Este formulario te permite buscar autos disponibles 
                   según tu ubicación de recogida, devolución y fechas. <strong>Escribe cualquier ciudad o dirección</strong> - 
                   ¡No estás limitado a opciones preestablecidas!

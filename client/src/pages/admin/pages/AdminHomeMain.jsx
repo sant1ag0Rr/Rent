@@ -7,22 +7,22 @@ const statCardsConfig = [
     key: "totalUsers",
     label: "Clientes",
     description: "Usuarios registrados en la plataforma",
-    accent: "from-sky-500 to-cyan-400",
-    chip: "bg-sky-50 text-sky-700",
+    accent: "from-emerald-500 to-green-400",
+    chip: "bg-emerald-50 text-emerald-700",
   },
   {
     key: "totalVendors",
     label: "Vendedores",
     description: "Aliados con vehiculos activos o en revision",
-    accent: "from-amber-500 to-orange-400",
-    chip: "bg-amber-50 text-amber-700",
+    accent: "from-green-500 to-teal-400",
+    chip: "bg-green-50 text-green-700",
   },
   {
     key: "totalAdmins",
     label: "Administradores",
     description: "Miembros internos con acceso al panel",
-    accent: "from-violet-500 to-fuchsia-400",
-    chip: "bg-violet-50 text-violet-700",
+    accent: "from-teal-500 to-emerald-400",
+    chip: "bg-teal-50 text-teal-700",
   },
 ];
 
@@ -75,14 +75,14 @@ const AdminHomeMain = () => {
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-500" />
+        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-emerald-500" />
       </div>
     );
   }
 
   return (
     <div className="mt-16 space-y-6 pb-8">
-      <section className="overflow-hidden rounded-[32px] bg-gradient-to-br from-slate-900 via-slate-800 to-sky-700 p-6 text-white shadow-xl md:p-8">
+      <section className="overflow-hidden rounded-[32px] bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 p-6 text-white shadow-xl md:p-8">
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1.5fr)_340px]">
           <div>
             <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">

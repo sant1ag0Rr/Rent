@@ -11,7 +11,7 @@ function Enterprise() {
         <h1 className={`${styles.heading2}`}>
             Lista tu vehículo con nosotros
         </h1>
-        <p>Para listar tu vehículo, inicia sesión como vendedor primero <span className="text-blue-600 cursor-pointer"><Link to={'/vendorSignin'}>iniciar sesión como vendedor</Link></span></p>
+        <p>Para listar tu vehículo, inicia sesión como vendedor primero <span className="text-emerald-600 cursor-pointer"><Link to={'/vendorSignin'}>iniciar sesión como vendedor</Link></span></p>
 
     </div>
     <Footers/>

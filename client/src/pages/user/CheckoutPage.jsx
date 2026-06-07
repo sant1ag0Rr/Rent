@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { MdCurrencyRupee } from "react-icons/md";
+import { FaDollarSign } from "react-icons/fa";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";
 import { MdVerifiedUser } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FaIndianRupeeSign } from "react-icons/fa6";
 
 import TextField from "@mui/material/TextField";
 import { useEffect, useState } from "react";
@@ -236,12 +235,12 @@ const CheckoutPage = () => {
             classNames: {
               error: "bg-red-500 p-5",
               success: "text-green-400 p-5",
-              warning: "text-yellow-400 p-5",
-              info: "bg-blue-400 p-5",
+              warning: "text-lime-400 p-5",
+              info: "bg-emerald-400 p-5",
             },
           }}
         />
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-2xl w-full text-center">
             {/* Icono de éxito */}
             <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -306,7 +305,7 @@ const CheckoutPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/")}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 <span>🏠</span> Ir al Inicio
               </button>
@@ -323,8 +322,8 @@ const CheckoutPage = () => {
             </div>
             
             {/* Información adicional */}
-            <div className="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-200">
-              <p className="text-sm text-blue-800">
+            <div className="mt-8 p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <p className="text-sm text-emerald-800">
                 <span className="font-semibold">💡 Nota:</span> Recibirás un email de confirmación con todos los detalles de tu reserva.
               </p>
             </div>
@@ -341,8 +340,8 @@ const CheckoutPage = () => {
           classNames: {
             error: "bg-red-500 p-5",
             success: "text-green-400 p-5",
-            warning: "text-yellow-400 p-5",
-            info: "bg-blue-400 p-5",
+            warning: "text-lime-400 p-5",
+            info: "bg-emerald-400 p-5",
           },
         }}
       />
@@ -366,15 +365,15 @@ const CheckoutPage = () => {
                     Revisa los detalles de tu reserva y completa el pago
                   </p>
                 </div>
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200 shadow-lg">
+            <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-6 border border-emerald-200 shadow-lg">
               <div className="flex flex-col lg:flex-row gap-6">
                 <div className="relative">
                   <img
-                    className="h-32 w-40 rounded-xl border-2 border-blue-200 object-cover shadow-lg"
+                    className="h-32 w-40 rounded-xl border-2 border-emerald-200 object-cover shadow-lg"
                 src={singleVehicleDetail.image[0]}
                     alt={singleVehicleDetail.name || singleVehicleDetail.model}
                   />
-                  <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  <div className="absolute -top-2 -right-2 bg-emerald-600 text-white text-xs px-2 py-1 rounded-full font-bold">
                     ⭐ Premium
                   </div>
                 </div>
@@ -425,9 +424,9 @@ const CheckoutPage = () => {
             </div>
             <div className=" cursor-pointer  rounded-lg drop-shadow-sm  border border-slate-50  p-4 mt-40 pt-10">
               {/* Formulario de reserva */}
-              <div className="mb-8 p-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl border border-blue-200 shadow-lg w-full">
+              <div className="mb-8 p-8 bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 rounded-2xl border border-emerald-200 shadow-lg w-full">
                 <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mb-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mb-4">
                     <span className="text-2xl">📍</span>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">
@@ -437,9 +436,9 @@ const CheckoutPage = () => {
                     Define dónde y cuándo quieres tu auto
                   </p>
                 </div>
-                <div className="mb-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200 shadow-sm">
+                <div className="mb-6 p-4 bg-gradient-to-r from-amber-50 to-emerald-50 rounded-xl border border-amber-200 shadow-sm">
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-amber-400 to-emerald-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-sm">💡</span>
                     </div>
                     <div>
@@ -463,7 +462,7 @@ const CheckoutPage = () => {
                   {/* Recogida */}
                   <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-green-500 rounded-full flex items-center justify-center">
                         <span className="text-white text-lg">🚗</span>
                       </div>
                       <h4 className="text-lg font-bold text-gray-800">Recogida</h4>
@@ -526,7 +525,7 @@ const CheckoutPage = () => {
                   {/* Devolución */}
                   <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
                         <span className="text-white text-lg">🔄</span>
                       </div>
                       <h4 className="text-lg font-bold text-gray-800">Devolución</h4>
@@ -535,13 +534,13 @@ const CheckoutPage = () => {
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
                           Ciudad de Devolución *
                         </label>
                         <input
                           type="text"
                           placeholder="Ej: Medellín, Bogotá, Nueva York..."
-                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
+                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
                           value={localDropoffDistrict}
                           onChange={(e) => {
                             setLocalDropoffDistrict(e.target.value);
@@ -552,13 +551,13 @@ const CheckoutPage = () => {
 
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
                           📍 Punto de Devolución *
                         </label>
                         <input
                           type="text"
                           placeholder="Ej: Hotel Hilton, Estación Central..."
-                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
+                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
                           value={localDropoffLocation}
                           onChange={(e) => {
                             setLocalDropoffLocation(e.target.value);
@@ -569,12 +568,12 @@ const CheckoutPage = () => {
                       
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
                           📅 Fecha y Hora de Devolución *
                         </label>
                         <input
                           type="datetime-local"
-                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
+                          className="w-full px-8 py-5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 bg-gray-50 hover:bg-white text-lg"
                           value={localDropoffDateTime}
                           min={localPickupDateTime || new Date().toISOString().slice(0, 16)}
                           onChange={(e) => {
@@ -620,7 +619,7 @@ const CheckoutPage = () => {
             <div className="flex flex-col gap-y-6 my-6">
               {/* Header de contacto */}
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full mb-4 shadow-lg">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-rose-600 rounded-full mb-4 shadow-lg">
                   <span className="text-2xl">📧</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
@@ -661,9 +660,9 @@ const CheckoutPage = () => {
               </div>
 
               {/* Información del usuario */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 border border-blue-200">
+              <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-4 border border-emerald-200">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm">👤</span>
                   </div>
                   <h4 className="text-lg font-semibold text-gray-800">Información del Usuario</h4>
@@ -722,7 +721,7 @@ const CheckoutPage = () => {
               <p className="text-sm font-medium text-gray-900">Total</p>
               <p className="text-2xl font-semibold text-gray-900 flex items-center justify-center">
                 <span>
-                  <FaIndianRupeeSign />{" "}
+                  <FaDollarSign />{" "}
                 </span>
                 {calculatedTotalPrice > 0 ? calculatedTotalPrice : totalPrice}
               </p>
@@ -754,7 +753,7 @@ const CheckoutPage = () => {
             ) : (
               <button
                 type="submit"
-                className="mt-6 mb-8 w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 px-8 py-4 font-bold text-white text-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="mt-6 mb-8 w-full rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 px-8 py-4 font-bold text-white text-lg shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 <div className="flex items-center justify-center gap-3">
                   <span>💳</span>

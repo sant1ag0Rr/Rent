@@ -51,7 +51,7 @@ const Navbar = () => {
         type="button"
         onClick={customFunc}
         style={{ color }}
-        className="relative text-xl p-3 hover:bg-gray-100 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="relative text-xl p-3 hover:bg-gray-100 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
         aria-label={title}
       >
         {dotColor && (
@@ -80,7 +80,7 @@ const Navbar = () => {
         <NavButton
           title="Menú"
           customFunc={() => dispatch(toggleSidebar())}
-          color={"blue"}
+          color={"#10b981"}
           icon={<AiOutlineMenu />}
         />
       </div>
@@ -89,23 +89,23 @@ const Navbar = () => {
         <NavButton
           title="Chat"
           customFunc={() => dispatch(openPages("chat"))}
-          color={"blue"}
-          dotColor={"cyan"}
+          color={"#10b981"}
+          dotColor={"#34d399"}
           icon={<BsChatLeft />}
         />
         
         <NavButton
           title="Notificación"
           customFunc={() => dispatch(openPages("notification"))}
-          color={"blue"}
-          dotColor={"gold"}
+          color={"#10b981"}
+          dotColor={"#059669"}
           icon={<RiNotification3Line />}
         />
         
         <TooltipComponent content="perfil" position="BottomCenter">
           <button
             type="button"
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-gray-100 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-gray-100 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors duration-200"
             onClick={() => dispatch(openPages("userProfile"))}
             onKeyDown={handleProfileKeyDown}
             aria-label={`Perfil de usuario: ${currentUser?.username || "Usuario"}`}

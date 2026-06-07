@@ -25,7 +25,7 @@ const UserProfileContent = () => {
       
       {/* Header Principal */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mb-6 shadow-lg">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mb-6 shadow-lg">
           <span className="text-3xl">👤</span>
         </div>
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Mi Perfil</h1>
@@ -35,7 +35,7 @@ const UserProfileContent = () => {
       {/* Tarjeta Principal del Perfil */}
       <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
         {/* Banner Superior */}
-        <div className="h-48 bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700 relative">
+        <div className="h-48 bg-gradient-to-br from-emerald-500 via-green-600 to-emerald-700 relative">
           <div className="absolute inset-0 bg-black bg-opacity-20"></div>
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/30 to-transparent"></div>
         </div>
@@ -61,7 +61,7 @@ const UserProfileContent = () => {
               
               {/* Botón de Editar */}
               <div className="absolute bottom-2 right-2">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 cursor-pointer">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 cursor-pointer">
                   <ProfileEdit />
                 </div>
               </div>
@@ -83,25 +83,25 @@ const UserProfileContent = () => {
           {/* Sección de Información Detallada */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Información Personal */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+            <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-6 border border-emerald-100">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center">
                   <FiUser className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800">Información Personal</h3>
               </div>
               
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-blue-100">
-                  <FiMail className="w-5 h-5 text-blue-500" />
+                <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-emerald-100">
+                  <FiMail className="w-5 h-5 text-emerald-500" />
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
                     <p className="font-semibold text-gray-800">{email || "No configurado"}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-blue-100">
-                  <FiPhone className="w-5 h-5 text-blue-500" />
+                <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-emerald-100">
+                  <FiPhone className="w-5 h-5 text-emerald-500" />
                   <div>
                     <p className="text-sm text-gray-500">Teléfono</p>
                     <p className="font-semibold text-gray-800">
@@ -147,7 +147,7 @@ const UserProfileContent = () => {
           {/* Acciones del Perfil */}
           <div className="mt-8 pt-8 border-t border-gray-200">
             <div className="flex flex-wrap gap-4">
-              <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2">
+              <button className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2">
                 <FiEdit3 className="w-4 h-4" />
                 Editar Perfil
               </button>
@@ -169,7 +169,7 @@ const UserProfileContent = () => {
       {/* Estadísticas del Usuario */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">🚗</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-800 mb-2">0</h3>
@@ -185,7 +185,7 @@ const UserProfileContent = () => {
         </div>
         
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">🎯</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-800 mb-2">0</h3>

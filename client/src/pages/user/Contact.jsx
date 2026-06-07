@@ -38,7 +38,7 @@ function Contact() {
       <section className="bg-white px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_420px]">
-            <div className="rounded-[32px] bg-gradient-to-br from-slate-900 via-slate-800 to-green-600 p-8 text-white shadow-[0_28px_80px_rgba(15,23,42,0.18)] md:p-10">
+            <div className="rounded-[32px] bg-slate-900 p-8 text-white md:p-10">
               <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90">
                 Contacto
               </span>
@@ -69,7 +69,7 @@ function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+            <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-8">
               <div>
                 <span className="inline-flex rounded-full bg-green-50 px-4 py-1 text-sm font-semibold text-green-700">
                   Respuesta rápida

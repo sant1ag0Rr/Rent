@@ -23,7 +23,7 @@ function Profile() {
           <Link to={"/"}>
             <IoArrowBackCircleSharp
               style={{ fontSize: "40", hover: "fill-red-700" }}
-              className="hover:fill-blue-500"
+              className="hover:fill-emerald-500"
             />
           </Link>
         </TooltipComponent>

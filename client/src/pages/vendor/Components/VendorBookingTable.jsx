@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdCurrencyRupee } from "react-icons/md";
+import { FaDollarSign } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 import { CiCalendarDate } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
@@ -183,7 +183,7 @@ const VendorBookingsTable = () => {
                       </p>
                       <p className="text-lg font-semibold mb-4 flex  items-center">
                         <span>
-                          <MdCurrencyRupee />
+                          <FaDollarSign />
                         </span>
                         {cur.totalPrice}
                       </p>

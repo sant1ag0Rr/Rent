@@ -39,15 +39,15 @@ const initialTasks = [
 ];
 
 const columns = [
-  { id: "pendiente", title: "Pendiente", accent: "border-amber-200 bg-amber-50" },
-  { id: "en-progreso", title: "En progreso", accent: "border-sky-200 bg-sky-50" },
+  { id: "pendiente", title: "Pendiente", accent: "border-slate-200 bg-slate-50" },
+  { id: "en-progreso", title: "En progreso", accent: "border-teal-200 bg-teal-50" },
   { id: "completado", title: "Completado", accent: "border-emerald-200 bg-emerald-50" },
 ];
 
 const priorityStyles = {
-  Alta: "bg-rose-100 text-rose-700",
-  Media: "bg-amber-100 text-amber-700",
-  Baja: "bg-emerald-100 text-emerald-700",
+  Alta: "bg-teal-100 text-teal-800",
+  Media: "bg-emerald-100 text-emerald-700",
+  Baja: "bg-slate-100 text-slate-700",
 };
 
 const Tablero = () => {

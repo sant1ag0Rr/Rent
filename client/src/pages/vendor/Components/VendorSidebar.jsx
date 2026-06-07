@@ -18,7 +18,7 @@ const VendorSidebar = () => {
   const dispatch = useDispatch();
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-black bg-blue-50 text-md  m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-black bg-emerald-50 text-md  m-2";
     //in normal mode there was dark:text-gray-200 i removed it
   const normalLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-md text-gray-700   dark:hover:text-black hover:bg-slate-100 m-2";
@@ -43,7 +43,7 @@ const VendorSidebar = () => {
           <Link
             to={`/vendorDashboard`}
             onClick={() => {}}
-            className="items-center flex gap-3 mt-4 ml-3 text-xl font-extrabold text-blue-500 tracking-tight "
+            className="items-center flex gap-3 mt-4 ml-3 text-xl font-extrabold text-emerald-500 tracking-tight "
           >
             <SiShopware />
            Panel de Vendedor

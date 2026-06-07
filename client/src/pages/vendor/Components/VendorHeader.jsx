@@ -12,7 +12,7 @@ const VendorHeader = ({category, title, onAddVehicle}) => {
       </p>
       </div>
       <button 
-        className='bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors'
+        className='bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors'
         onClick={onAddVehicle}
       >
         <div className='text-white px-5 py-2 font-bold'>Agregar +</div>

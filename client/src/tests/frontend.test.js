@@ -137,9 +137,9 @@ describe('TC-02: Búsqueda de Vehículos (Frontend)', () => {
   it('debería mostrar resultados de búsqueda en grid o lista', () => {
     // Arrange
     const mockSearchResults = [
-      { id: '1', name: 'Toyota Corolla', price: 120000, available: true },
-      { id: '2', name: 'Honda Civic', price: 110000, available: true },
-      { id: '3', name: 'Ford Focus', price: 100000, available: false }
+      { id: '1', name: 'Chevrolet Tracker', price: 240000, available: true },
+      { id: '2', name: 'Renault Duster', price: 260000, available: true },
+      { id: '3', name: 'Nissan Versa', price: 170000, available: false }
     ];
     
     // Act - Simular filtrado por disponibilidad
@@ -176,7 +176,7 @@ describe('TC-03: Reserva de Vehículos (Frontend)', () => {
     const mockVehicle = {
       id: 'vehicle_123',
       name: 'Toyota Corolla',
-      price: 120000,
+      price: 240000,
       image: 'corolla.jpg',
       description: 'Vehículo confiable y económico'
     };
@@ -348,14 +348,14 @@ describe('TC-05: Historial de Reservas (Frontend)', () => {
         vehicleName: 'Toyota Corolla',
         pickupDate: '2025-01-15',
         status: 'viajeCompletado',
-        totalPrice: 600000
+        totalPrice: 1200000
       },
       {
         id: '2',
         vehicleName: 'Honda Civic',
         pickupDate: '2025-02-15',
         status: 'reservado',
-        totalPrice: 500000
+        totalPrice: 1000000
       }
     ];
     
@@ -549,7 +549,7 @@ describe('TC-07: Agregar Vehículos (Vendedor Frontend)', () => {
       registeration_number: 'ABC123',
       company: 'Toyota',
       name: 'Corolla',
-      price: 120000
+      price: 240000
     };
     
     // Act - Simular validación
@@ -659,14 +659,14 @@ describe('TC-08: Aprobación de Vehículos (Admin Frontend)', () => {
       details: {
         company: 'Toyota',
         name: 'Corolla',
-        price: 120000
+        price: 240000
       }
     };
     
     // Act & Assert
     expect(mockVehiclePreview.images).to.have.length(2);
     expect(mockVehiclePreview.details.company).to.equal('Toyota');
-    expect(mockVehiclePreview.details.price).to.equal(120000);
+    expect(mockVehiclePreview.details.price).to.equal(240000);
   });
 });
 

@@ -79,7 +79,7 @@ export default function VendorEditProductComponent() {
                 <input
                   {...register("registeration_number", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.registeration_number || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="ABC-1234"
                 />
                 {errors.registeration_number && (
@@ -94,19 +94,41 @@ export default function VendorEditProductComponent() {
                 <select
                   {...register("company", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.company || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar marca</option>
                   <option value="Toyota">Toyota</option>
                   <option value="Honda">Honda</option>
                   <option value="Ford">Ford</option>
+                  <option value="Chevrolet">Chevrolet</option>
+                  <option value="Mazda">Mazda</option>
+                  <option value="Renault">Renault</option>
                   <option value="BMW">BMW</option>
-                  <option value="Mercedes">Mercedes</option>
+                  <option value="Mercedes-Benz">Mercedes-Benz</option>
                   <option value="Audi">Audi</option>
                   <option value="Volkswagen">Volkswagen</option>
                   <option value="Nissan">Nissan</option>
                   <option value="Hyundai">Hyundai</option>
                   <option value="Kia">Kia</option>
+                  <option value="Suzuki">Suzuki</option>
+                  <option value="Mitsubishi">Mitsubishi</option>
+                  <option value="Subaru">Subaru</option>
+                  <option value="Peugeot">Peugeot</option>
+                  <option value="Citroen">Citroen</option>
+                  <option value="Jeep">Jeep</option>
+                  <option value="Dodge">Dodge</option>
+                  <option value="Fiat">Fiat</option>
+                  <option value="Seat">Seat</option>
+                  <option value="Skoda">Skoda</option>
+                  <option value="Volvo">Volvo</option>
+                  <option value="Lexus">Lexus</option>
+                  <option value="Porsche">Porsche</option>
+                  <option value="Land Rover">Land Rover</option>
+                  <option value="Mini">Mini</option>
+                  <option value="Chery">Chery</option>
+                  <option value="BYD">BYD</option>
+                  <option value="MG">MG</option>
+                  <option value="JAC">JAC</option>
                 </select>
                 {errors.company && (
                   <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
@@ -123,7 +145,7 @@ export default function VendorEditProductComponent() {
                 <input
                   {...register("name", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.name || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Corolla, Civic, Focus..."
                 />
                 {errors.name && (
@@ -138,7 +160,7 @@ export default function VendorEditProductComponent() {
                 <input
                   {...register("title", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.car_title || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Toyota Corolla 2023 Luxury"
                 />
                 {errors.title && (
@@ -156,7 +178,7 @@ export default function VendorEditProductComponent() {
                 <select
                   {...register("base_package", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.base_package || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar paquete</option>
                   <option value="Básico">Básico</option>
@@ -178,7 +200,7 @@ export default function VendorEditProductComponent() {
                   {...register("price", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.price || ""}
                   type="number"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="35"
                 />
                 {errors.price && (
@@ -197,7 +219,7 @@ export default function VendorEditProductComponent() {
                   {...register("year_made", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.year_made || ""}
                   type="number"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="2021"
                 />
                 {errors.year_made && (
@@ -212,7 +234,7 @@ export default function VendorEditProductComponent() {
                 <select
                   {...register("fuel_type", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.fuel_type || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar combustible</option>
                   <option value="petrol">Gasolina</option>
@@ -235,7 +257,7 @@ export default function VendorEditProductComponent() {
                 <select
                   {...register("car_type", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.car_type || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar tipo</option>
                   <option value="Sedán">Sedán</option>
@@ -245,6 +267,20 @@ export default function VendorEditProductComponent() {
                   <option value="Deportivo">Deportivo</option>
                   <option value="Furgoneta">Furgoneta</option>
                   <option value="Pickup">Pickup</option>
+                  <option value="Moto">Moto</option>
+                  <option value="Bus">Bus</option>
+                  <option value="Microbús">Microbús</option>
+                  <option value="Camioneta">Camioneta</option>
+                  <option value="Camión">Camión</option>
+                  <option value="Van">Van</option>
+                  <option value="Minivan">Minivan</option>
+                  <option value="Convertible">Convertible</option>
+                  <option value="Coupé">Coupé</option>
+                  <option value="Todoterreno">Todoterreno</option>
+                  <option value="Utilitario">Utilitario</option>
+                  <option value="Eléctrico">Eléctrico</option>
+                  <option value="Híbrido">Híbrido</option>
+                  <option value="Otro">Otro</option>
                 </select>
                 {errors.car_type && (
                   <p className="text-red-500 text-sm mt-1">{errors.car_type.message}</p>
@@ -263,7 +299,7 @@ export default function VendorEditProductComponent() {
                 <select
                   {...register("transmition_type", { required: "Campo requerido" })}
                   defaultValue={updatingItem?.transmition || ""}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="">Seleccionar transmisión</option>
                   <option value="manual">Manual</option>
@@ -282,7 +318,7 @@ export default function VendorEditProductComponent() {
                   {...register("description")}
                   defaultValue={updatingItem?.car_description || ""}
                   rows="3"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Descripción del vehículo..."
                 />
               </div>
@@ -299,7 +335,7 @@ export default function VendorEditProductComponent() {
                   defaultValue={updatingItem?.location || ""}
                   type="text"
                   placeholder="Ej: Ciudad de México"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
                 {errors.location && (
                   <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>
@@ -315,7 +351,7 @@ export default function VendorEditProductComponent() {
                   defaultValue={updatingItem?.district || ""}
                   type="text"
                   placeholder="Ej: Polanco, Condesa, etc."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
                 {errors.district && (
                   <p className="text-red-500 text-sm mt-1">{errors.district.message}</p>
@@ -333,7 +369,7 @@ export default function VendorEditProductComponent() {
                     type="file"
                     multiple
                 accept="image/*"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               <p className="text-sm text-gray-500 mt-1">
                 <strong>💡 Consejo:</strong> Solo selecciona nuevas imágenes si quieres reemplazar las actuales.
@@ -353,7 +389,7 @@ export default function VendorEditProductComponent() {
               </button>
               <button
                 type="submit"
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-6 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               >
                 Actualizar Vehículo
               </button>
