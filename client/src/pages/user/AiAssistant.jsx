@@ -103,29 +103,29 @@ function AiAssistant() {
           </div>
           <button
             onClick={clearChat}
-            className="text-sm border border-gray-300 px-3 py-2 rounded-lg hover:bg-gray-100 font-poppins transition-colors"
+            className="text-sm border border-black/20 px-3 py-2 rounded-lg hover:bg-black/10 font-poppins transition-colors"
           >
             Nueva conversación
           </button>
         </div>
 
         {/* Ventana de chat */}
-        <div className="bg-gray-50 rounded-xl border border-gray-200 h-[480px] overflow-y-auto flex flex-col gap-4 p-4 drop-shadow">
+        <div className="bg-black/5 rounded-xl border border-black/10 h-[480px] overflow-y-auto flex flex-col gap-4 p-4 drop-shadow">
           {messages.map((msg, i) => (
             <div
               key={i}
               className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
               {msg.role === "ai" && (
-                <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold mr-2 shrink-0 mt-1">
+                <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-bold mr-2 shrink-0 mt-1">
                   IA
                 </div>
               )}
               <div
                 className={`max-w-[75%] px-4 py-3 rounded-2xl text-sm font-poppins leading-relaxed whitespace-pre-wrap ${
                   msg.role === "user"
-                    ? "bg-gray-800 text-white rounded-br-sm"
-                    : "bg-white text-gray-800 border border-gray-200 rounded-bl-sm drop-shadow-sm"
+                    ? "bg-black text-white rounded-br-sm"
+                    : "bg-white text-black border border-black/10 rounded-bl-sm drop-shadow-sm"
                 }`}
               >
                 {msg.text}
@@ -136,14 +136,14 @@ function AiAssistant() {
           {/* Indicador de escritura */}
           {loading && (
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold mr-2 shrink-0">
+              <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-bold mr-2 shrink-0">
                 IA
               </div>
-              <div className="bg-white border border-gray-200 rounded-2xl rounded-bl-sm px-4 py-3 drop-shadow-sm">
+              <div className="bg-white border border-black/10 rounded-2xl rounded-bl-sm px-4 py-3 drop-shadow-sm">
                 <div className="flex gap-1 items-center h-4">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-bounce [animation-delay:0ms]" />
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-bounce [animation-delay:150ms]" />
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                  <span className="w-2 h-2 bg-green-600 rounded-full animate-bounce [animation-delay:0ms]" />
+                  <span className="w-2 h-2 bg-green-600 rounded-full animate-bounce [animation-delay:150ms]" />
+                  <span className="w-2 h-2 bg-green-600 rounded-full animate-bounce [animation-delay:300ms]" />
                 </div>
               </div>
             </div>
@@ -160,17 +160,17 @@ function AiAssistant() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ej: quiero un auto económico para familia de 5..."
-            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm font-poppins resize-none focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+            className="flex-1 border border-black/20 rounded-xl px-4 py-3 text-sm font-poppins resize-none focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-600 transition-colors"
           />
           <button
             onClick={sendMessage}
             disabled={loading || !input.trim()}
-            className="bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-5 py-3 rounded-xl font-semibold text-sm font-poppins transition-colors"
+            className="bg-green-600 hover:bg-green-700 disabled:bg-black/30 disabled:cursor-not-allowed text-white px-5 py-3 rounded-xl font-semibold text-sm font-poppins transition-colors"
           >
             Enviar
           </button>
         </div>
-        <p className="text-xs text-gray-400 mt-2 font-poppins text-center">
+        <p className="text-xs text-black/40 mt-2 font-poppins text-center">
           Presiona Enter para enviar · Shift+Enter para nueva línea
         </p>
       </div>

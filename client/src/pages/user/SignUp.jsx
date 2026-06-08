@@ -68,8 +68,8 @@ function SignUp() {
 
   return (
     <>
-      <div className="max-w-md w-full mx-auto mt-20 mb-10 bg-white rounded-[32px] shadow-2xl shadow-emerald-900/10 border border-slate-100 overflow-hidden">
-        <div className="bg-gradient-to-r from-emerald-500 to-green-600 px-8 py-8 flex justify-between items-center text-white relative">
+      <div className="max-w-md w-full mx-auto mt-20 mb-10 bg-white rounded-[32px] shadow-2xl shadow-black/10 border border-black/10 overflow-hidden">
+        <div className="bg-gradient-to-r from-green-600 to-green-700 px-8 py-8 flex justify-between items-center text-white relative">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="relative z-10">
             <h1 className="text-3xl font-extrabold tracking-tight">Crear cuenta</h1>
@@ -82,63 +82,63 @@ function SignUp() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 p-8">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Nombre de Usuario</label>
+            <label className="block text-sm font-semibold text-black mb-2">Nombre de Usuario</label>
             <input
               type="text"
               id="username"
-              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              className="w-full bg-black/5 border border-black/10 text-black rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-green-500/50 focus:border-green-500 shadow-sm"
               placeholder="ej. Juan Perez"
               {...register("username")}
             />
             {errors.username && (
-              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.username.message}</p>
+              <p className="text-red-600 text-xs mt-1.5 font-medium">{errors.username.message}</p>
             )}
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Correo electrónico</label>
+            <label className="block text-sm font-semibold text-black mb-2">Correo electrónico</label>
             <input
               type="email"
               id="email"
-              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              className="w-full bg-black/5 border border-black/10 text-black rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-green-500/50 focus:border-green-500 shadow-sm"
               placeholder="tu@email.com"
               {...register("email")}
             />
             {errors.email && (
-              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.email.message}</p>
+              <p className="text-red-600 text-xs mt-1.5 font-medium">{errors.email.message}</p>
             )}
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Contraseña</label>
+            <label className="block text-sm font-semibold text-black mb-2">Contraseña</label>
             <input
               type="password"
               id="password"
-              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              className="w-full bg-black/5 border border-black/10 text-black rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-green-500/50 focus:border-green-500 shadow-sm"
               placeholder="••••••••"
               {...register("password")}
             />
             {errors.password && (
-              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.password.message}</p>
+              <p className="text-red-600 text-xs mt-1.5 font-medium">{errors.password.message}</p>
             )}
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Confirmar Contraseña</label>
+            <label className="block text-sm font-semibold text-black mb-2">Confirmar Contraseña</label>
             <input
               type="password"
               id="confirmPassword"
-              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-sm"
+              className="w-full bg-black/5 border border-black/10 text-black rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:bg-white focus:ring-2 focus:ring-green-500/50 focus:border-green-500 shadow-sm"
               placeholder="••••••••"
               {...register("confirmPassword")}
             />
             {errors.confirmPassword && (
-              <p className="text-rose-500 text-xs mt-1.5 font-medium">{errors.confirmPassword.message}</p>
+              <p className="text-red-600 text-xs mt-1.5 font-medium">{errors.confirmPassword.message}</p>
             )}
           </div>
 
           <button
-            className="mt-3 w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition-all duration-300 disabled:bg-slate-300 disabled:shadow-none flex items-center justify-center"
+            className="mt-3 w-full py-3.5 px-4 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-bold rounded-xl shadow-lg shadow-green-600/30 transition-all duration-300 disabled:bg-black/30 disabled:shadow-none flex items-center justify-center"
             disabled={isLoading}
           >
             {isLoading ? (
@@ -149,15 +149,15 @@ function SignUp() {
           </button>
 
           {isError && (
-             <div className="mt-2 p-3 bg-rose-50 border border-rose-100 rounded-lg text-center">
-               <p className="text-sm font-semibold text-rose-600">{isError}</p>
+             <div className="mt-2 p-3 bg-black/5 border border-black/10 rounded-lg text-center">
+               <p className="text-sm font-semibold text-red-600">{isError}</p>
              </div>
           )}
 
-          <div className="mt-2 pt-6 border-t border-slate-100 text-center">
-            <p className="text-sm text-slate-500 font-medium">
+          <div className="mt-2 pt-6 border-t border-black/10 text-center">
+            <p className="text-sm text-black/50 font-medium">
               ¿Ya tienes una cuenta?{" "}
-              <Link to="/signin" className="text-emerald-600 hover:text-emerald-700 font-bold ml-1 transition-colors">
+              <Link to="/signin" className="text-green-600 hover:text-green-700 font-bold ml-1 transition-colors">
                 Inicia sesión
               </Link>
             </p>

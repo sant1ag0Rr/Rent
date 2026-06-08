@@ -44,13 +44,13 @@ const VendorAllVehicles = () => {
           }),
         });
         if (!res.ok) {
-          console.log("not success");
+          dispatch(setVendorError(true));
           return;
         }
         const data = await res.json();
         dispatch(setVenodrVehilces(data));
-      } catch (error) {
-        console.log(error);
+      } catch {
+        dispatch(setVendorError(true));
       }
     };
     fetchData();

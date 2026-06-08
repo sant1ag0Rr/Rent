@@ -38,7 +38,6 @@ const VendorBookingsTable = () => {
         }),
       });
       if (!res.ok) {
-        console.log("not success");
         return;
       }
       const data = await res.json();
@@ -47,8 +46,8 @@ const VendorBookingsTable = () => {
         return;
       }
       return data;
-    } catch (error) {
-      console.log(error);
+    } catch {
+      return null;
     }
   };
 
@@ -80,8 +79,8 @@ const VendorBookingsTable = () => {
       if (data) {
         setBookings(data);
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
+      setBookings([]);
     }
   };
 
@@ -106,8 +105,8 @@ const VendorBookingsTable = () => {
           return;
         }
         fetchBookings();
-      } catch (error) {
-        console.log(error);
+      } catch {
+        return;
       }
     };
 

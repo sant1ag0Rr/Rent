@@ -36,7 +36,7 @@ const Navbar = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* left side */}
         <FlexBetween>
-          <IconButton onClick={() => console.log("clicked")}>
+          <IconButton>
             <MenuIcon />
           </IconButton>
           <FlexBetween

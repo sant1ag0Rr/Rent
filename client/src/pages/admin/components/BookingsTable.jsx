@@ -19,8 +19,8 @@ const BookingsTable = () => {
       if (data) {
         setBookings(data);
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
+      setBookings([]);
     }
   };
 
@@ -48,8 +48,8 @@ const BookingsTable = () => {
         }
 
         fetchBookings();
-      } catch (error) {
-        console.log(error);
+      } catch {
+        return;
       }
     };
 

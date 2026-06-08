@@ -74,8 +74,8 @@ export default function EditProductComponent() {
         dispatch(setEditData(null));
       }
       reset();
-    } catch (error) {
-      console.log(error);
+    } catch {
+      toast.error("Error al guardar");
     }
     navigate("/adminDashboard/allProduct");
   };
@@ -215,7 +215,7 @@ export default function EditProductComponent() {
                   >
                     <MenuItem value={"petrol"}>petrol</MenuItem>
                     <MenuItem value={"diesel"}>diesel</MenuItem>
-                    <MenuItem value={"electirc"}>electric</MenuItem>
+                    <MenuItem value={"electirc"}>Eléctrico</MenuItem>
                     <MenuItem value={"hybrid"}>hybrid</MenuItem>
                   </TextField>
                 )}

@@ -90,7 +90,7 @@ const Filter = () => {
           dispatch(setFilteredData(filtData));
         }
       } catch (error) {
-        console.log(error);
+        dispatch(setFilteredData([]));
       }
     }
   };
@@ -109,10 +109,10 @@ const Filter = () => {
       <div className="sticky top-0 left-0 right-0  ">
         <div className="filterComponent flex h-full max-w-[320px] lg:max-w-[350px]  flex-col  bg-white  shadow-xl mx-auto">
           <div className="flex items-center justify-between px-4 py-2">
-            <h2 className="text-lg font-medium text-gray-900">Filtros</h2>
+            <h2 className="text-lg font-medium text-black">Filtros</h2>
             <button
               type="button"
-              className="-mr-2  flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+              className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-black"
               onClick={()=> setFilterOpen(!filterOpen) }
             >
              
@@ -124,17 +124,17 @@ const Filter = () => {
           {/* <!-- Filters  form --> */}
 
          
-          <div className={` border-t border-gray-200 dropdown-content ${filterOpen ? 'opacity-100' : 'opacity-100'} `}>
+          <div className={` border-t border-black/10 dropdown-content ${filterOpen ? 'opacity-100' : 'opacity-100'} `}>
             <h3 className="sr-only">Categories</h3>
 
-            <div className="border-t border-gray-200 px-4 py-6">
+            <div className="border-t border-black/10 px-4 py-6">
               <div className="flex flex-col justify-center  items-start gap-y-4 w-full">
                 <form className="w-full" onSubmit={handleSubmit(handleData)}>
                   <div className="w-full mb-7 ">
                     <div className="mb-5 flex justify-between items-center">
                       <div>Tipo de Vehículo</div>{" "}
                       <div>
-                        <GoPlus color="gray" />
+                        <GoPlus color="black" />
                       </div>
                     </div>
                     <div>
@@ -188,11 +188,11 @@ const Filter = () => {
                     </div>
                   </div>
 
-                  <div className="w-full border-t border-t-gray-300 pt-7">
+                  <div className="w-full border-t border-t-black/10 pt-7">
                     <div className="mb-5 flex justify-between items-center">
                       <div>Transmisión</div>
                       <div>
-                        <GoPlus color="gray" />
+                        <GoPlus color="black" />
                       </div>
                     </div>
                     <div>
@@ -210,7 +210,7 @@ const Filter = () => {
                               )}
                             />
                           }
-                          label="Automatic"
+                          label="Automatica"
                         />
                         <FormControlLabel
                           control={
@@ -231,11 +231,11 @@ const Filter = () => {
                     </div>
                   </div>
 
-                  <div className="w-full border-t border-t-gray-300 pt-7">
+                  <div className="w-full border-t border-t-black/10 pt-7">
                     <div className="mb-5 flex justify-between items-center">
                       <div>Combustible</div>
                       <div>
-                        <GoPlus color="gray" />
+                        <GoPlus color="black" />
                       </div>
                     </div>
                     <div>
@@ -304,11 +304,11 @@ const Filter = () => {
                     </div>
                   </div>
 
-                  <div className="w-full border-t border-t-gray-300 pt-7">
+                  <div className="w-full border-t border-t-black/10 pt-7">
                     <div className="mb-5 flex justify-between items-center">
                       <div>Precio por Día</div>
                       <div>
-                        <GoPlus color="gray" />
+                        <GoPlus color="black" />
                       </div>
                     </div>
                     <div>
@@ -362,7 +362,7 @@ const Filter = () => {
                     </div>
                   </div>
 
-                  <div className="mt-7 pt-7 border-t border-t-gray-300">
+                  <div className="mt-7 pt-7 border-t border-t-black/10">
                     <button
                       type="submit"
                       className="px-6 py-2 bg-black text-white rounded-md"

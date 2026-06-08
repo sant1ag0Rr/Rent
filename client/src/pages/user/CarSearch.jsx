@@ -84,16 +84,6 @@ const CarSearch = () => {
   //   fetchLov();
   // }, []);
 
-  // Ya no necesitamos estos useEffects
-  // useEffect(() => {
-  //   console.log("🔍 DEBUG FILTROS:");
-  //   console.log("districtData:", districtData);
-  //   console.log("uniqueDistrict:", uniqueDistrict);
-  //   console.log("selectedDistrict:", selectedDistrict);
-  //   console.log("locationsOfDistrict:", locationsOfDistrict);
-  //   console.log("wholeData:", wholeData);
-  // }, [districtData, uniqueDistrict, selectedDistrict, locationsOfDistrict, wholeData]);
-
   // useEffect(() => {
   //   if (selectedDistrict !== null) {
   //     const showLocationInDistrict = wholeData
@@ -163,7 +153,7 @@ const CarSearch = () => {
         }
       }
     } catch (error) {
-      console.log("Error  : ", error);
+      setError(error.message || "Error al buscar vehiculos");
     }
   };
 
@@ -188,8 +178,8 @@ const CarSearch = () => {
                 Revisa tu email para confirmar la orden. <IconX width={20} height={20} />
               </p>
               
-              <div className="mb-4 p-3 bg-emerald-50 rounded-lg">
-                <p className="text-sm text-emerald-800">
+              <div className="mb-4 p-3 bg-green-600 rounded-lg">
+                <p className="text-sm text-white">
                   <strong>💡 ¿Para qué sirve?</strong> Este formulario te permite buscar autos disponibles 
                   según tu ubicación de recogida, devolución y fechas. <strong>Escribe cualquier ciudad o dirección</strong> - 
                   ¡No estás limitado a opciones preestablecidas!
@@ -200,7 +190,7 @@ const CarSearch = () => {
                 <div className="box-form">
                   <div className="box-form__car-type">
                     <label htmlFor="pickup_district">
-                      <IconMapPinFilled className="input-icon" /> &nbsp; Ciudad de Recogida <p className="text-red-500">*</p>
+                      <IconMapPinFilled className="input-icon" /> &nbsp; Ciudad de Recogida <p className="text-green-600">*</p>
                     </label>
                     <Controller
                       name="pickup_district"
@@ -218,12 +208,12 @@ const CarSearch = () => {
                         />
                       )}
                     />
-                    {errors.pickup_district && <p className="text-red-500">{errors.pickup_district.message}</p>}
+                    {errors.pickup_district && <p className="text-green-600">{errors.pickup_district.message}</p>}
                   </div>
 
                   <div className="box-form__car-type ">
                     <label htmlFor="pickup_location">
-                      <IconMapPinFilled className="input-icon" /> &nbsp; Dirección Específica de Recogida <p className="text-red-500">*</p>
+                      <IconMapPinFilled className="input-icon" /> &nbsp; Dirección Específica de Recogida <p className="text-green-600">*</p>
                     </label>
                     <Controller
                       name="pickup_location"
@@ -239,12 +229,12 @@ const CarSearch = () => {
                         />
                       )}
                     />
-                    {errors.pickup_location && <p className="text-red-500">{errors.pickup_location.message}</p>}
+                    {errors.pickup_location && <p className="text-green-600">{errors.pickup_location.message}</p>}
                   </div>
 
                   <div className="box-form__car-type">
                     <label>
-                      <IconMapPinFilled className="input-icon" /> &nbsp; Dirección Específica de Devolución <p className="text-red-500">*</p>
+                      <IconMapPinFilled className="input-icon" /> &nbsp; Dirección Específica de Devolución <p className="text-green-600">*</p>
                     </label>
 
                     <Controller
@@ -261,12 +251,12 @@ const CarSearch = () => {
                         />
                       )}
                     />
-                    {errors.dropoff_location && <p className="text-red-500">{errors.dropoff_location.message}</p>}
+                    {errors.dropoff_location && <p className="text-green-600">{errors.dropoff_location.message}</p>}
                   </div>
 
                   <div className="box-form__car-time">
                     <label htmlFor="picktime" className="flex items-center">
-                      <IconCalendarEvent className="input-icon" /> &nbsp; Fecha de Recogida <p className="text-red-500">*</p>
+                      <IconCalendarEvent className="input-icon" /> &nbsp; Fecha de Recogida <p className="text-green-600">*</p>
                     </label>
                     <Controller
                       name={"pickuptime"}
@@ -288,12 +278,12 @@ const CarSearch = () => {
                         </LocalizationProvider>
                       )}
                     />
-                    {errors.pickuptime && <p className="text-red-500">{errors.pickuptime.message}</p>}
+                    {errors.pickuptime && <p className="text-green-600">{errors.pickuptime.message}</p>}
                   </div>
 
                   <div className="box-form__car-time">
                     <label htmlFor="droptime" className="flex items-center">
-                      <IconCalendarEvent className="input-icon" /> &nbsp; Fecha de Devolución <p className="text-red-500">*</p>
+                      <IconCalendarEvent className="input-icon" /> &nbsp; Fecha de Devolución <p className="text-green-600">*</p>
                     </label>
                     <Controller
                       name={"dropofftime"}
@@ -306,8 +296,8 @@ const CarSearch = () => {
                         </LocalizationProvider>
                       )}
                     />
-                    {errors.dropofftime && <p className="text-red-500">{errors.dropofftime.message}</p>}
-                    {error && <p className="text-[8px] text-red-500">{error}</p>}
+                    {errors.dropofftime && <p className="text-green-600">{errors.dropofftime.message}</p>}
+                    {error && <p className="text-[8px] text-green-600">{error}</p>}
                   </div>
 
                   <button type="submit" className="book-content__box_button">

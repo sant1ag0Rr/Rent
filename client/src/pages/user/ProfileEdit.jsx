@@ -33,8 +33,8 @@ const ProfileEdit = () => {
         // dispatch(editUserProfile(null));
         dispatch(setUpdated(true));
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
+      dispatch(setUpdated(false));
     }
   };
 
@@ -94,7 +94,7 @@ const ProfileEdit = () => {
             <div className="flex justify-end items-center gap-x-2">
               <button
                 type="button"
-                className="w-[100px] rounded-sm text-white bg-red-500 p-2"
+                className="w-[100px] rounded-sm text-white bg-black p-2"
                 onClick={() => {
                   setIsModalOpen(false);
                 }}
@@ -103,7 +103,7 @@ const ProfileEdit = () => {
               </button>
               <button
                 type="submit"
-                className="w-[100px] rounded-sm text-white bg-green-500 p-2"
+                className="w-[100px] rounded-sm text-white bg-green-600 p-2"
                 onClick={() => {
                   setIsModalOpen(false);
                 }}

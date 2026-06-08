@@ -23,9 +23,7 @@ function VendorOAuth() {
           photo: result.user.photoURL,
         }),
       });
-      console.log(res)
       const data = await res.json();
-      console.log(data)
       if(res.ok){
         dispatch(signInSuccess(data));
         navigate('/vendorDashboard')
@@ -38,7 +36,8 @@ function VendorOAuth() {
      
       
     } catch (error) {
-      console.log('could not login with google ', error);
+      dispatch(signInFailure(error.message || "No se pudo iniciar sesion con Google"));
+      navigate('/vendorSignin');
     }
   };
   return (
@@ -49,7 +48,7 @@ function VendorOAuth() {
         onClick={handleVendorGoogleClick}
       >
         <span className="icon-[devicon--google]"></span>
-        <span>Continue with Google</span>
+        <span>Continuar con Google</span>
       </button>
      
     </div>

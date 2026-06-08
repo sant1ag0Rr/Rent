@@ -130,7 +130,6 @@ export async function displayRazorpay(values, navigate, dispatch) {
     paymentObject.open();
     dispatch(setPageLoading(false));
   } catch (error) {
-    console.log(error);
     toast.error(error.message);
   }
 }

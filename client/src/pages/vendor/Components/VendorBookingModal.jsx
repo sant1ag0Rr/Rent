@@ -8,6 +8,20 @@ const VendorBookingDetailModal = () => {
   );
 
   const dispatch = useDispatch();
+  const normalizeFuel = (fuel) => {
+    const mapping = {
+      petrol: "Gasolina",
+      diesel: "Diesel",
+      electirc: "Electrico",
+      hybrid: "Hibrido",
+    };
+    return mapping[fuel] || fuel || "No especificado";
+  };
+  const normalizeTransmission = (transmission) => {
+    if (transmission === "manual") return "Manual";
+    if (transmission === "automatic") return "Automatica";
+    return transmission || "No especificado";
+  };
 
   
  
@@ -32,11 +46,11 @@ const VendorBookingDetailModal = () => {
           <div className=" relative m-4 mx-auto  min-w-[300px] md:min-w-[500px] max-w-[40%]  rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl">
             <div className="relative pt-10 p-4 antialiased capitalize font-medium text-[10px] md:text-[16px] ">
               <div className="mb-4 ">
-                <div className="mb-2 font-bold">Booking Details</div>
+                <div className="mb-2 font-bold">Detalles de reserva</div>
                 <hr></hr>
                 <div className="mb-4 mt-2">
                   <div className="flex items-center  justify-between">
-                    <div>Booking Id</div>
+                    <div>ID de reserva</div>
                     <div>{cur._id}</div>
                   </div>
                   <div className="flex items-center justify-between">
@@ -44,67 +58,67 @@ const VendorBookingDetailModal = () => {
                     <div>{cur.totalPrice}</div>
                   </div>
                   <div className="flex items-center justify-between mt-2 ">
-                    <div>Pickup Location</div>
+                    <div>Lugar de recogida</div>
                     <div>{cur.pickUpLocation}</div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div>Pickup Date</div>
+                    <div>Fecha de recogida</div>
                     <div><span>{pickupDate.getDate()}</span>:{pickupDate.getMonth()}<span>:{pickupDate.getFullYear()}</span></div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div>Tickup Time</div>
+                    <div>Hora de recogida</div>
                     <div><span>{pickupDate.getHours()}</span>:{pickupDate.getMinutes()}</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div>Dropoff Location</div>
+                  <div>Lugar de devolucion</div>
                   <div>{cur.dropOffLocation}</div>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div>Dropoff Date</div>
+                  <div>Fecha de devolucion</div>
                   <div><span>{dropOffDate.getDate()}</span>:{dropOffDate.getMonth()}<span>:{dropOffDate.getFullYear()}</span></div>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div>Dropoff Time</div>
+                  <div>Hora de devolucion</div>
                   <div><span>{dropOffDate.getHours()}</span>:{dropOffDate.getMinutes()}</div>
                 </div>
               </div>
 
-              <div className="mt-4 font-bold">Vehicle Details</div>
+              <div className="mt-4 font-bold">Detalles del vehiculo</div>
               <hr className="mt-4 mb-4" />
               <div className="flex items-cetner justify-between">
-                <div>Vehicle Number</div>
+                <div>Numero de vehiculo</div>
                 <div>{cur.vehicleDetails.registeration_number}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Model</div>
+                <div>Modelo</div>
                 <div>{cur.vehicleDetails.model}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Company</div>
+                <div>Marca</div>
                 <div>{cur.vehicleDetails.company}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Vehicle Type</div>
+                <div>Tipo de vehiculo</div>
                 <div>{cur.vehicleDetails.car_type}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Seats</div>
+                <div>Asientos</div>
                 <div>{cur.vehicleDetails.seats}</div>
               </div>
 
               <div className="flex items-cetner justify-between">
-                <div>Fuel Type</div>
-                <div>{cur.vehicleDetails.fuel_type}</div>
+                <div>Combustible</div>
+                <div>{normalizeFuel(cur.vehicleDetails.fuel_type)}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Transmission</div>
-                <div>{cur.vehicleDetails.transmition}</div>
+                <div>Transmision</div>
+                <div>{normalizeTransmission(cur.vehicleDetails.transmition)}</div>
               </div>
               <div className="flex items-cetner justify-between">
-                <div>Manufactureing Year</div>
+                <div>Ano de fabricacion</div>
                 <div>{cur.vehicleDetails.year_made}</div>
               </div>
             </div>

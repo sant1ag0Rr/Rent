@@ -7,28 +7,28 @@ const contactCards = [
     title: "Llámanos",
     detail: "+57 300 123 4567",
     helper: "Atención rápida para reservas y soporte.",
-    color: "bg-green-50 text-green-600",
+    color: "bg-green-600 text-white",
   },
   {
     icon: <FiMail />,
     title: "Escríbenos",
     detail: "soporte@alquilaunauto.com",
     helper: "Respondemos dudas, cambios y solicitudes.",
-    color: "bg-slate-100 text-slate-700",
+    color: "bg-white text-black",
   },
   {
     icon: <FiMapPin />,
     title: "Visítanos",
     detail: "Bogotá, Colombia",
     helper: "Punto de atención para gestión comercial.",
-    color: "bg-green-50 text-green-600",
+    color: "bg-green-600 text-white",
   },
   {
     icon: <FiClock />,
     title: "Horario",
     detail: "Lun a Sáb, 8:00 AM - 7:00 PM",
     helper: "Siempre listos para ayudarte con tu viaje.",
-    color: "bg-slate-100 text-slate-700",
+    color: "bg-white text-black",
   },
 ];
 
@@ -69,35 +69,35 @@ function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-between rounded-[32px] border border-slate-200 bg-white p-8">
+            <div className="flex flex-col justify-between rounded-[32px] border border-black/10 bg-white p-8">
               <div>
-                <span className="inline-flex rounded-full bg-green-50 px-4 py-1 text-sm font-semibold text-green-700">
+                <span className="inline-flex rounded-full bg-green-600 px-4 py-1 text-sm font-semibold text-white">
                   Respuesta rápida
                 </span>
-                <h2 className="mt-5 text-3xl font-bold text-slate-900">
+                <h2 className="mt-5 text-3xl font-bold text-black">
                   Hablemos de tu próxima reserva
                 </h2>
-                <p className="mt-4 text-base leading-8 text-slate-600">
+                <p className="mt-4 text-base leading-8 text-black/60">
                   Cuéntanos qué tipo de vehículo necesitas y te ayudamos a elegir
                   la mejor opción para tu viaje, empresa o evento especial.
                 </p>
               </div>
 
               <div className="mt-10 space-y-4">
-                <div className="rounded-2xl bg-slate-50 p-5">
-                  <p className="text-sm font-semibold text-slate-900">
+                <div className="rounded-2xl bg-black/5 p-5">
+                  <p className="text-sm font-semibold text-black">
                     Soporte para reservas
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                  <p className="mt-2 text-sm leading-7 text-black/60">
                     Cambios de fecha, confirmaciones, disponibilidad y asistencia
                     general en el proceso de alquiler.
                   </p>
                 </div>
-                <div className="rounded-2xl bg-green-50 p-5">
-                  <p className="text-sm font-semibold text-slate-900">
+                <div className="rounded-2xl bg-green-600 p-5">
+                  <p className="text-sm font-semibold text-white">
                     Atención empresarial
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                  <p className="mt-2 text-sm leading-7 text-white/80">
                     Planes corporativos, alquiler por periodos largos y soluciones
                     para equipos o compañías.
                   </p>

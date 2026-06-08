@@ -6,7 +6,7 @@ import {
   showVehicles,
 } from "../../redux/user/listAllVehicleSlice";
 import { FaCarSide } from "react-icons/fa";
-import { BsFillFuelPumpFill } from "react-icons/bs";
+import { BsFillFuelPumpFill, BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 import { MdAirlineSeatReclineNormal, MdOutlineLocationOn } from "react-icons/md";
 import { FiArrowRight, FiEye } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,6 +15,8 @@ import Sort from "../../components/Sort";
 import { signOut } from "../../redux/user/userSlice";
 import Footers from "../../components/Footer";
 import SkeletonLoader from "../../components/ui/SkeletonLoader";
+import { toggleFavorite, getFavorites } from "./Favorites";
+
 
 //use Custome hook in this case :)
 export const onVehicleDetail = async (id, dispatch, navigate) => {
@@ -35,8 +37,8 @@ export const onVehicleDetail = async (id, dispatch, navigate) => {
 
     dispatch(setVehicleDetail(data));
     navigate("/vehicleDetails");
-  } catch (error) {
-    console.log(error);
+  } catch {
+    dispatch(signOut());
   }
 };
 
@@ -53,6 +55,13 @@ const normalizeFuel = (fuel) => {
 
 const VehicleCard = ({ vehicle, dispatch, navigate }) => {
   const hasManyImages = vehicle.image && vehicle.image.length > 1;
+  const [fav, setFav] = useState(() => getFavorites().includes(vehicle._id));
+
+  const handleFav = (e) => {
+    e.stopPropagation();
+    const updated = toggleFavorite(vehicle._id);
+    setFav(updated.includes(vehicle._id));
+  };
 
   return (
     <article className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-1">
@@ -73,7 +82,19 @@ const VehicleCard = ({ vehicle, dispatch, navigate }) => {
             {vehicle.image.length} fotos
           </div>
         )}
+        {/* Botón favoritos */}
+        <button
+          onClick={handleFav}
+          title={fav ? "Quitar de favoritos" : "Guardar en favoritos"}
+          className="absolute right-4 bottom-4 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110"
+        >
+          {fav
+            ? <BsSuitHeartFill className="text-green-600" />
+            : <BsSuitHeart className="text-black/40" />
+          }
+        </button>
       </div>
+
 
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
@@ -175,15 +196,15 @@ const Vehicles = () => {
           credentials: "include",
         });
         if (!res.ok) {
-          console.log("not success");
+          setIsLoading(false);
+          return;
         }
         if (res.ok) {
           const data = await res.json();
           dispatch(showVehicles(data));
           setIsLoading(false);
         }
-      } catch (error) {
-        console.log(error);
+      } catch {
         setIsLoading(false);
       }
     };

@@ -14,19 +14,19 @@ const benefits = [
     icon: <FaCarSide />,
     title: "Vehículos de Calidad",
     description: "Autos modernos y bien mantenidos para tu seguridad",
-    iconStyle: "bg-green-50 text-green-600",
+    iconStyle: "bg-green-600 text-white",
   },
   {
     icon: <HiCurrencyDollar />,
     title: "Precios Justos",
     description: "Tarifas competitivas sin cargos ocultos",
-    iconStyle: "bg-gray-100 text-gray-800",
+    iconStyle: "bg-black text-white",
   },
   {
     icon: <FaShieldAlt />,
     title: "Reserva Segura",
     description: "Proceso de reserva simple y confiable",
-    iconStyle: "bg-green-50 text-green-600",
+    iconStyle: "bg-green-600 text-white",
   },
 ];
 
@@ -60,11 +60,11 @@ function Home() {
     <>
       {isSweetAlert && sweetalert()}
 
-      <section className="relative mx-auto min-h-[72vh] w-full overflow-hidden bg-slate-50 sm:max-w-[900px] md:min-h-[60vh] lg:min-h-[73vh] lg:max-w-[1500px]">
+      <section className="relative mx-auto min-h-[72vh] w-full overflow-hidden bg-white sm:max-w-[900px] md:min-h-[60vh] lg:min-h-[73vh] lg:max-w-[1500px]">
 
         <div className="relative z-10 mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-6 py-16 sm:px-10 md:min-h-[60vh] md:grid-cols-2 md:px-14 lg:min-h-[73vh] lg:px-20">
           <div className="max-w-3xl">
-            <p className={`mb-4 text-xs md:text-sm ${styles.paragraph}`}>
+            <p className={`mb-4 text-xs md:text-sm text-black/60`}>
               Planifica tu viaje ahora
             </p>
 
@@ -74,7 +74,7 @@ function Home() {
               alquiler de autos
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-gray-700 md:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-black/60 md:text-lg">
               Alquila el auto de tus sueños. Precios inmejorables, kilómetros
               ilimitados, opciones de recogida flexibles y mucho más.
             </p>
@@ -92,7 +92,7 @@ function Home() {
 
               <button
                 onClick={() => navigate("/enterprise")}
-                className="inline-flex min-h-[70px] items-center justify-center rounded-xl bg-gray-800 px-8 py-4 text-center text-base font-semibold text-white transition-colors hover:bg-gray-900"
+                className="inline-flex min-h-[70px] items-center justify-center rounded-xl bg-black px-8 py-4 text-center text-base font-semibold text-white transition-colors hover:bg-black/80"
               >
                 <span>Información Empresarial</span>
                 <span className="ml-3">
@@ -115,13 +115,13 @@ function Home() {
       <section className="bg-white px-6 py-20 md:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex rounded-full bg-green-50 px-4 py-1 text-sm font-semibold text-green-700">
+            <span className="inline-flex rounded-full bg-green-600 px-4 py-1 text-sm font-semibold text-white">
               Beneficios principales
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-gray-800 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold text-black md:text-4xl">
               ¿Por qué elegirnos?
             </h2>
-            <p className="mt-3 text-base text-gray-500">
+            <p className="mt-3 text-base text-black/50">
               Te ofrecemos una experiencia de alquiler clara, confiable y pensada
               para que encuentres el vehículo ideal sin complicaciones.
             </p>
@@ -131,20 +131,20 @@ function Home() {
             {benefits.map((benefit) => (
               <article
                 key={benefit.title}
-                className="group rounded-3xl bg-white p-8 text-center transition-transform duration-300 hover:-translate-y-1"
+                className="group rounded-3xl bg-white p-8 text-center border border-black/10 transition-transform duration-300 hover:-translate-y-1"
               >
                 <div
                   className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-3xl ${benefit.iconStyle}`}
                 >
                   {benefit.icon}
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold text-slate-900">
+                <h3 className="mt-6 text-2xl font-semibold text-black">
                   {benefit.title}
                 </h3>
-                <p className="mt-3 text-lg leading-8 text-slate-500">
+                <p className="mt-3 text-lg leading-8 text-black/50">
                   {benefit.description}
                 </p>
-                <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-125" />
+                <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-green-600 transition-transform duration-300 group-hover:scale-125" />
               </article>
             ))}
           </div>

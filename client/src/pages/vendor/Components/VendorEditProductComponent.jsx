@@ -45,8 +45,7 @@ export default function VendorEditProductComponent() {
           toast.error("Error al actualizar el vehículo");
         }
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
       toast.error("Error de conexión");
     }
   };

@@ -36,7 +36,7 @@ function OAuth() {
         dispatch(signInFailure(data));
       }
     } catch (error) {
-      console.log("could not login with google ", error);
+      dispatch(signInFailure(error.message || "No se pudo iniciar sesion con Google"));
     }
   };
   return (
@@ -47,14 +47,14 @@ function OAuth() {
         onClick={handleGoogleClick}
       >
         <span className="icon-[devicon--google]"></span>
-        <span>Continue with Google</span>
+        <span>Continuar con Google</span>
       </button>
       <button
         className="flex w-full gap-3 justify-center pl-4 border  py-3 rounded-md  items-center border-black"
         type="button"
       >
         <span className="icon-[logos--facebook]"></span>
-        <span>Continue with Facebook</span>
+        <span>Continuar con Facebook</span>
       </button>
     </div>
   );

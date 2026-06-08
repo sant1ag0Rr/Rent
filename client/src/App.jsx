@@ -29,6 +29,7 @@ import AddProductModal from "./pages/admin/components/AddProductModal";
 import VendorAddProductModal from "./pages/vendor/Components/VendorAddVehilceModal";
 import CarNotFound from "./pages/user/CarNotFound";
 import AiAssistant from "./pages/user/AiAssistant";
+import Favorites from "./pages/user/Favorites";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
           <Route path="/availableVehicles" element={<AvailableVehicles />} />
           <Route path="/checkoutPage" element={<CheckoutPage />} />
           <Route path="/razorpay" element={<Razorpay />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Route>
         
         {/* vendor private routes */}

@@ -32,7 +32,8 @@ const AvailableVehiclesAfterSearch = () => {
         body: JSON.stringify(datas),
       });
       if (!res.ok) {
-        console.log("not success");
+        dispatch(setFilteredData([]));
+        return;
       }
       if (res.ok) {
         const data = await res.json();
@@ -40,8 +41,8 @@ const AvailableVehiclesAfterSearch = () => {
         dispatch(setFilteredData(data));
         navigate("/allVariants");
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
+      dispatch(setFilteredData([]));
     }
   };
 
@@ -76,7 +77,7 @@ const AvailableVehiclesAfterSearch = () => {
                       />
                     </div>
                     <div className="flex justify-between items-start">
-                      <h2 className="text-[14px] capitalize font-semibold tracking-tight text-gray-900">
+                      <h2 className="text-[14px] capitalize font-semibold tracking-tight text-black">
                         <span></span>
                         {cur.name}
                       </h2>

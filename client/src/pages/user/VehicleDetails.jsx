@@ -6,7 +6,7 @@ import { GrSecure } from "react-icons/gr";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaBuilding, FaCarAlt, FaCarSide, FaStar } from "react-icons/fa";
-import { FaIndianRupeeSign } from "react-icons/fa6";
+import { FaDollarSign } from "react-icons/fa6";
 import { GiGearStickPattern } from "react-icons/gi";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { MdAirlineSeatReclineExtra, MdOutlineLocationOn } from "react-icons/md";
@@ -51,13 +51,12 @@ const VehicleDetails = () => {
           headers: { Authorization: `Bearer ${refreshToken},${accessToken}` },
         });
         if (!res.ok) {
-          console.log("not success");
           return;
         }
         const data = await res.json();
         dispatch(showVehicles(data));
-      } catch (error) {
-        console.log(error);
+      } catch {
+        dispatch(showVehicles([]));
       }
     };
     fetchData();
@@ -66,8 +65,8 @@ const VehicleDetails = () => {
   const handleBook = async () => {
     try {
       navigate("/checkoutPage");
-    } catch (error) {
-      console.log(error);
+    } catch {
+      navigate("/vehicles");
     }
   };
 
@@ -266,7 +265,7 @@ const VehicleDetails = () => {
                     </p>
                     <div className="mt-2 flex items-end">
                       <h2 className="flex items-center text-4xl font-bold">
-                        <FaIndianRupeeSign className="mr-1 text-2xl" />
+                        <FaDollarSign className="mr-1 text-2xl" />
                         {singleVehicleDetail?.price}
                       </h2>
                       <span className="ml-2 text-sm text-white/70">/día</span>

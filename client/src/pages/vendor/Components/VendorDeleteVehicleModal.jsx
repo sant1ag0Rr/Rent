@@ -18,15 +18,14 @@ const VendorDeleteVehicleModal = () => {
         method: "DELETE"
       })
       if(!res.ok){
-        console.log("soemthing went wrong")
         return 
       }
       if (res.ok) {
         dispatch(setVendorDeleteSuccess(true))
         }
       }
-      catch (error) {
-        console.log(error);
+      catch {
+        return;
       }
     }
    

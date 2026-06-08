@@ -49,7 +49,7 @@ function Header() {
                 id="signin"
                 className={`border-[1px] hidden lg:inline-flex border-green-500 py-1 text-[12px] md:text-[14px] sm:py-[7px] px-2 sm:px-4 font-normal sm:font-semibold rounded-md `}
               >
-                Iniciar Sesión
+                Iniciar sesion
               </button>
             )}
           </Link>
@@ -115,7 +115,7 @@ function Header() {
                       id="signin"
                       className={` rounded-md  text-[24px] font-semibold  `}
                     >
-                      Sign In
+                      Iniciar sesion
                     </button>
                   )}
                 </Link>
@@ -132,7 +132,7 @@ function Header() {
                         id="signup"
                         className=" rounded-md  text-[24px] font-semibold "
                       >
-                        Sign Up
+                        Registrarse
                       </button>
                     </Link>
                   </div>
@@ -151,9 +151,9 @@ function Header() {
                   ) : (
                     <button
                       id="signin"
-                      className={`border-[1px] w-[80px]  border-green-500 bg-green-500  py-1 text-[10px]   px-2  font-normal sm:font-semibold  `}
+                      className={`border-[1px] w-[80px] border-black bg-black text-white py-1 text-[10px] px-2 font-normal sm:font-semibold`}
                     >
-                      Sign In
+                      Iniciar sesion
                     </button>
                   )}
                 </Link>
@@ -165,7 +165,7 @@ function Header() {
                     <div className="hidden lg:inline-flex">
                       <Link to={"/signup"}>
                         <button id="signup" className={`${styles.button} `}>
-                          Sign Up
+                          Registrarse
                         </button>
                       </Link>
                     </div>

@@ -33,13 +33,12 @@ export async function sendBookingDetailsEmail(
 
     if (!response.ok) {
       dispatch(setisPaymentDone(false));
-      console.log("something went wrong while sending email");
       return;
     }
 
     return "good";
   } catch (error) {
-    console.log(error);
+    dispatch(setisPaymentDone(false));
   }
 }
 
@@ -113,8 +112,8 @@ const CheckoutPage = () => {
 
   // Función para actualizar el estado de Redux cuando cambien los campos
   const updateBookingData = (field, value) => {
-    // Aquí deberías dispatchar la acción para actualizar Redux
-    console.log(`Actualizando ${field}:`, value);
+    void field;
+    void value;
   };
 
               // Función para calcular días y precio total
@@ -134,7 +133,7 @@ const CheckoutPage = () => {
 
 
               //calculateing total price
-            let totalPrice = price * Days ? Days + 25 : "";
+            let totalPrice = price * Days ? price * Days + 25 : "";
   //handle place order data
   const handlePlaceOrder = async () => {
     // Validar que todos los campos estén llenos
@@ -155,13 +154,10 @@ const CheckoutPage = () => {
       dropoff_location: localDropoffLocation,
     };
 
-    console.log("Datos de la orden:", orderData);
-
     try {
       dispatch(setPageLoading(true));
       
       // PRUEBA DIRECTA: Guardar en base de datos sin Razorpay
-      console.log("Intentando guardar reserva directamente...");
       
       const response = await fetch("/api/user/bookCar", {
         method: "POST",
@@ -172,7 +168,6 @@ const CheckoutPage = () => {
       });
 
       const result = await response.json();
-      console.log("Respuesta del backend:", result);
 
       if (response.ok && result) {
         toast.success("¡Reserva creada exitosamente!");
@@ -200,7 +195,6 @@ const CheckoutPage = () => {
       }
       */
     } catch (error) {
-      console.log("Error en handlePlaceOrder:", error);
       dispatch(setPageLoading(false));
       toast.error("Error al procesar la reserva: " + error.message);
     }
@@ -272,7 +266,7 @@ const CheckoutPage = () => {
                 
                 <div>
                   <p className="text-sm text-gray-600">Precio Total:</p>
-                  <p className="font-semibold text-green-600">₹ {reservationData.totalPrice}</p>
+                  <p className="font-semibold text-green-600">$ {reservationData.totalPrice}</p>
                 </div>
                 
                 <div>
@@ -417,7 +411,7 @@ const CheckoutPage = () => {
                   
                   <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl p-4 text-center">
                     <p className="text-sm opacity-90">Precio por día</p>
-                    <p className="text-3xl font-bold">₹ {singleVehicleDetail.price}</p>
+                    <p className="text-3xl font-bold">$ {singleVehicleDetail.price}</p>
                   </div>
                 </div>
               </div>

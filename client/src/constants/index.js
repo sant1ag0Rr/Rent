@@ -6,7 +6,7 @@ export const navLinks = [
     },
     {
       id: "1",
-      title: "Vehículos",
+      title: "Vehiculos",
       path:'/vehicles',
     },
     {
@@ -25,4 +25,3 @@ export const navLinks = [
       path:'/ai'
     }
   ];
-  

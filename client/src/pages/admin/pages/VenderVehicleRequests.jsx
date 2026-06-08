@@ -36,8 +36,9 @@ const VenderVehicleRequests = () => {
         const requests = Array.isArray(payload?.data) ? payload.data : [];
         dispatch(setVenodrVehilces(requests));
         dispatch(setadminVenodrRequest(requests));
-      } catch (error) {
-        console.log(error);
+      } catch {
+        dispatch(setVenodrVehilces([]));
+        dispatch(setadminVenodrRequest([]));
       }
     };
 
@@ -55,13 +56,12 @@ const VenderVehicleRequests = () => {
       });
 
       if (!res.ok) {
-        console.log("error");
         return;
       }
 
       dispatch(setUpdateRequestTable(id));
-    } catch (error) {
-      console.log(error);
+    } catch {
+      return;
     }
   };
 
@@ -76,13 +76,12 @@ const VenderVehicleRequests = () => {
       });
 
       if (!res.ok) {
-        console.log("error", res);
         return;
       }
 
       dispatch(setUpdateRequestTable(id));
-    } catch (error) {
-      console.log(error);
+    } catch {
+      return;
     }
   };
 

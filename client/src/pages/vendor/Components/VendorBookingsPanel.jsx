@@ -8,18 +8,12 @@ export default function VendorBookingsPanel() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log("🔍 VendorBookingsPanel renderizado");
-  console.log("🏪 Vendor ID:", _id);
-
   const fetchVendorBookings = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      console.log("🔄 Iniciando fetchVendorBookings...");
-      
       if (!_id) {
-        console.log("❌ No hay vendor ID");
         setError("Vendedor no autenticado");
         setLoading(false);
         return;
@@ -35,26 +29,18 @@ export default function VendorBookingsPanel() {
         }),
       });
 
-      console.log("📡 Respuesta del servidor:", res);
-      console.log("📊 Status:", res.status);
-
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
       const data = await res.json();
-      console.log("📦 Datos recibidos:", data);
-      console.log("📏 Cantidad de reservas:", data?.length);
 
       if (data && Array.isArray(data)) {
         setBookings(data);
-        console.log("✅ Estado actualizado con reservas");
       } else {
-        console.log("❌ Datos no válidos:", data);
         setBookings([]);
       }
     } catch (error) {
-      console.log("💥 Error en fetchVendorBookings:", error);
       setError(error.message);
       setBookings([]);
     } finally {

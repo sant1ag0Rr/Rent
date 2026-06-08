@@ -69,8 +69,11 @@ export const fetchModelData = async (dispatch) => {
     } else {
       return "no data found";
     }
-  } catch (error) {
-    console.log(error);
+  } catch {
+    dispatch(setModelData([]));
+    dispatch(setCompanyData([]));
+    dispatch(setLocationData([]));
+    dispatch(setDistrictData([]));
   }
 };
 
@@ -145,7 +148,7 @@ const AddProductModal = () => {
       reset();
     } catch (error) {
       dispatch(setadminCrudError(true))
-      console.log(error);
+      toast.error(error.message || "Error al guardar");
     }
     dispatch(addVehicleClicked(false));
     navigate("/adminDashboard/allProduct");

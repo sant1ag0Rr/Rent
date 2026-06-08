@@ -17,20 +17,12 @@ export default function Orders() {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
-  console.log("🔍 Orders component renderizado");
-  console.log("👤 Current user:", useSelector((state) => state.user.currentUser));
-  console.log("🆔 User ID:", _id);
-
   const fetchBookings = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      console.log("🔄 Iniciando fetchBookings...");
-      console.log("👤 User ID:", _id);
-      
       if (!_id) {
-        console.log("❌ No hay user ID");
         setError("Usuario no autenticado");
         setLoading(false);
         return;
@@ -46,27 +38,18 @@ export default function Orders() {
         }),
       });
 
-      console.log("📡 Respuesta del servidor:", res);
-      console.log("📊 Status:", res.status);
-      console.log("📋 OK:", res.ok);
-
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
       const data = await res.json();
-      console.log("📦 Datos recibidos:", data);
-      console.log("📏 Cantidad de reservas:", data?.length);
 
       if (data && Array.isArray(data)) {
         setBookings(data);
-        console.log("✅ Estado actualizado con reservas");
       } else {
-        console.log("❌ Datos no válidos:", data);
         setBookings([]);
       }
     } catch (error) {
-      console.log("💥 Error en fetchBookings:", error);
       setError(error.message);
       setBookings([]);
     } finally {
@@ -186,7 +169,7 @@ export default function Orders() {
                     </div>
                     <div className="text-right">
                       <p className="text-2xl font-bold text-green-600 flex items-center gap-2">
-                        <span>₹</span>
+                        <span>$</span>
                         {cur.bookingDetails.totalPrice}
                       </p>
                       <p className="text-sm text-gray-500">Total</p>
