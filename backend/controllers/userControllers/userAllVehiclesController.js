@@ -5,13 +5,22 @@ import Booking from "../../models/BookingModel.js";
 //show all vehicles to user
 export const listAllVehicles = async (req, res, next) => {
   try {
-    const vehicles = await vehicle.find();
+    const vehicles = await vehicle
+      .find({
+        isAdminApproved: true,
+        $or: [
+          { isDeleted: false },
+          { isDeleted: "false" },
+          { isDeleted: { $exists: false } },
+        ],
+      })
+      .sort({ updated_at: -1, created_at: -1 });
     if (!vehicles) {
       return next(errorHandler(404, "no vehicles found"));
     }
+    res.set("Cache-Control", "no-store");
     res.status(200).json(vehicles);
   } catch (error) {
-    console.log("Error in listAllVehicles:", error);
     next(errorHandler(500, "something went wrong"));
   }
 };
@@ -113,7 +122,12 @@ export const searchCar = async (req, res, next) => {
         const search = await vehicle.aggregate([
           {
             $match: {
-              isDeleted: "false",
+              isAdminApproved: true,
+              $or: [
+                { isDeleted: false },
+                { isDeleted: "false" },
+                { isDeleted: { $exists: false } },
+              ],
             },
           },
           {

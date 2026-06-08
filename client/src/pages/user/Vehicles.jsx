@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Filter from "../../components/Filter";
 import Sort from "../../components/Sort";
 import { signOut } from "../../redux/user/userSlice";
+import { setFilteredData } from "../../redux/user/sortfilterSlice";
 import Footers from "../../components/Footer";
 import SkeletonLoader from "../../components/ui/SkeletonLoader";
 import { toggleFavorite, getFavorites } from "./Favorites";
@@ -182,18 +183,18 @@ const Vehicles = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
 
-  const BASE_URL = import.meta.env.VITE_PRODUCTION_BACKEND_URL;
-
   const refreshToken = localStorage.getItem("refreshToken");
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
     dispatch(setVariants(null));
+    dispatch(setFilteredData([]));
     const fetchData = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/user/listAllVehicles`, {
+        const res = await fetch("/api/user/listAllVehicles", {
           headers: { Authorization: `Bearer ${refreshToken},${accessToken}` },
           credentials: "include",
+          cache: "no-store",
         });
         if (!res.ok) {
           setIsLoading(false);
@@ -209,7 +210,7 @@ const Vehicles = () => {
       }
     };
     fetchData();
-  }, [dispatch, data]);
+  }, [dispatch, data, refreshToken, accessToken]);
 
   const visibleVehicles = useMemo(() => {
     const source =
@@ -217,7 +218,7 @@ const Vehicles = () => {
 
     return source.filter(
       (cur) =>
-        cur.isDeleted === "false" &&
+        (cur.isDeleted === false || cur.isDeleted === "false" || cur.isDeleted == null) &&
         cur.isAdminApproved
     );
   }, [filterdData, userAllVehicles]);

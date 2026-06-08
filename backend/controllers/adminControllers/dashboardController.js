@@ -113,7 +113,13 @@ export const addProduct = async (req, res, next) => {
 // Show all vehicles to admin
 export const showVehicles = async (req, res, next) => {
   try {
-    const vehicles = await Vehicle.find({ isDeleted: { $ne: true } });
+    const vehicles = await Vehicle.find({
+      $or: [
+        { isDeleted: false },
+        { isDeleted: "false" },
+        { isDeleted: { $exists: false } },
+      ],
+    });
     
     if (vehicles.length === 0) {
       return next(errorHandler(404, "No vehicles found"));

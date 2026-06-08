@@ -411,12 +411,12 @@ const CheckoutPage = () => {
                   
                   <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl p-4 text-center">
                     <p className="text-sm opacity-90">Precio por día</p>
-                    <p className="text-3xl font-bold">$ {singleVehicleDetail.price}</p>
+                    <p className="text-2xl sm:text-3xl font-bold leading-tight">$ {singleVehicleDetail.price}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className=" cursor-pointer  rounded-lg drop-shadow-sm  border border-slate-50  p-4 mt-40 pt-10">
+            <div className="rounded-lg drop-shadow-sm border border-slate-50 p-4 mt-8 pt-6 bg-white">
               {/* Formulario de reserva */}
               <div className="mb-8 p-8 bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 rounded-2xl border border-emerald-200 shadow-lg w-full">
                 <div className="text-center mb-6">

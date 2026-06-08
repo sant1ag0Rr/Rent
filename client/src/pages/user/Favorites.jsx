@@ -146,18 +146,13 @@ const Favorites = () => {
 
   const refreshToken = localStorage.getItem("refreshToken");
   const accessToken = localStorage.getItem("accessToken");
-  const BASE_URL = import.meta.env.VITE_PRODUCTION_BACKEND_URL;
-
   useEffect(() => {
-    if (userAllVehicles && userAllVehicles.length > 0) {
-      setIsLoading(false);
-      return;
-    }
     const fetchData = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/user/listAllVehicles`, {
+        const res = await fetch("/api/user/listAllVehicles", {
           headers: { Authorization: `Bearer ${refreshToken},${accessToken}` },
           credentials: "include",
+          cache: "no-store",
         });
         if (res.ok) {
           const data = await res.json();
@@ -170,10 +165,13 @@ const Favorites = () => {
       }
     };
     fetchData();
-  }, [dispatch, BASE_URL, refreshToken, accessToken, userAllVehicles]);
+  }, [dispatch, refreshToken, accessToken]);
 
   const favoriteVehicles = (userAllVehicles || []).filter(
-    (v) => favoriteIds.includes(v._id) && v.isDeleted === "false" && v.isAdminApproved
+    (v) =>
+      favoriteIds.includes(v._id) &&
+      (v.isDeleted === false || v.isDeleted === "false" || v.isDeleted == null) &&
+      v.isAdminApproved
   );
 
   const handleRemove = (vehicleId) => {
